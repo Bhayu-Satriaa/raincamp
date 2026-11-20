@@ -1,6 +1,6 @@
 export default function ProdukMini() {
     return (
-        <div className="min-h-screen bg-white text-slate-900">
+        <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100">
             <nav className="flex items-center justify-between bg-slate-900 px-6 py-4 text-white">
                 <span className="text-xl font-bold">TokoKita</span>
                 <div className="flex gap-6 text-sm">
@@ -22,32 +22,32 @@ export default function ProdukMini() {
                     id="produk"
                     className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
                 >
-                    <article className="rounded-xl border border-slate-200 p-6 shadow-sm">
+                    <article className="rounded-xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
                         <h2 className="text-lg font-semibold">Kopi Toraja 250 g</h2>
-                        <p className="mt-1 text-slate-600">
+                        <p className="mt-1 text-slate-600 dark:text-slate-300">
                             Biji kopi arabika sangrai sedang.
                         </p>
-                        <p className="mt-4 text-xl font-bold text-teal-700">
+                        <p className="mt-4 text-xl font-bold text-teal-700 dark:text-teal-300">
                             Rp85.000
                         </p>
                     </article>
 
-                    <article className="rounded-xl border border-slate-200 p-6 shadow-sm">
+                    <article className="rounded-xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
                         <h2 className="text-lg font-semibold">Gula Aren 500 g</h2>
-                        <p className="mt-1 text-slate-600">
+                        <p className="mt-1 text-slate-600 dark:text-slate-300">
                             Gula aren cetak tanpa pengawet.
                         </p>
-                        <p className="mt-4 text-xl font-bold text-teal-700">
+                        <p className="mt-4 text-xl font-bold text-teal-700 dark:text-teal-300">
                             Rp32.000
                         </p>
                     </article>
 
-                    <article className="rounded-xl border border-slate-200 p-6 shadow-sm">
+                    <article className="rounded-xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
                         <h2 className="text-lg font-semibold">Teh Hijau 100 g</h2>
-                        <p className="mt-1 text-slate-600">
+                        <p className="mt-1 text-slate-600 dark:text-slate-300">
                             Daun teh pilihan dari dataran tinggi.
                         </p>
-                        <p className="mt-4 text-xl font-bold text-teal-700">
+                        <p className="mt-4 text-xl font-bold text-teal-700 dark:text-teal-300">
                             Rp27.500
                         </p>
                     </article>
