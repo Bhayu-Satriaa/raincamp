@@ -78,23 +78,23 @@ export default function HalamanCV() {
                         <li>
                             Pemrograman web
                             <ul className="list-[circle] pl-6">
-                                <li>HTML, JSX, dan Tailwind CSS</li>
+                                <li>HTML, JSX,Tailwind CSS, PHP, Laravel, Git, Github</li>
                                 <li>JavaScript dasar</li>
                             </ul>
                         </li>
                         <li>Microsoft Office</li>
-                        <li>Bahasa Inggris (pasif)</li>
+                        <li>Bahasa Inggris (beginner)</li>
                     </ul>
                 </section>
 
                 <section id="pengalaman">
                     <h2 className="mb-4 text-2xl font-bold">Pengalaman</h2>
                     <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-                        <h3 className="text-lg font-semibold">Magang Staf IT — PT Contoh Jaya</h3>
-                        <p className="text-sm text-slate-600 dark:text-slate-300">Januari–Maret 2025</p>
+                        <h3 className="text-lg font-semibold">Magang — PT Mahakam Indonusa</h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-300">Juli–Desember 2025</p>
                         <ol className="mt-3 list-decimal space-y-1 pl-6">
-                            <li>Merawat 20 komputer kantor</li>
-                            <li>Membuat halaman profil perusahaan</li>
+                            <li>Mermbuat Website Company Profile</li>
+                            <li>Membantu Invoicing Perusahaan</li>
                         </ol>
                     </article>
                 </section>
@@ -137,7 +137,7 @@ export default function HalamanCV() {
             </main>
 
             <footer className="border-t border-slate-200 py-6 text-center text-sm text-slate-600 dark:border-slate-700 dark:text-slate-300">
-                <p>&copy; 2026 {nama}. Email: budi@contoh.id</p>
+                <p>&copy; 2026 {nama}. Email: bhayuusatriaa@gmail.com</p>
             </footer>
         </div>
     );

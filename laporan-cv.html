@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Laporan Penjelasan Halaman CV</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm 14mm 12mm 14mm;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            line-height: 1.5;
+            font-size: 9.5pt;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cover {
+            text-align: center;
+            padding: 20px 10px 16px;
+            border-bottom: 2px solid #0d9488;
+            margin-bottom: 16px;
+        }
+
+        .cover .badge {
+            display: inline-block;
+            background-color: #ccfbf1;
+            color: #0f766e;
+            padding: 3px 12px;
+            border-radius: 9999px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .cover h1 {
+            font-size: 18pt;
+            color: #0f172a;
+            margin: 0 0 6px 0;
+            font-weight: 800;
+        }
+
+        .cover p.subtitle {
+            font-size: 10pt;
+            color: #475569;
+            margin: 0 0 12px 0;
+        }
+
+        .meta-box {
+            display: inline-flex;
+            gap: 20px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 6px 16px;
+            font-size: 8pt;
+            color: #334155;
+        }
+
+        .meta-box strong {
+            color: #0f766e;
+        }
+
+        h2 {
+            font-size: 12pt;
+            color: #0f766e;
+            border-left: 4px solid #0d9488;
+            padding-left: 8px;
+            margin-top: 14px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 10pt;
+            color: #0f172a;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0 0 8px 0;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 0 0 8px 0;
+            padding-left: 18px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .screenshot-wrapper {
+            text-align: center;
+            margin: 10px auto;
+            max-height: 235mm;
+            overflow: hidden;
+        }
+
+        .screenshot-img {
+            max-height: 228mm;
+            width: auto;
+            border-radius: 8px;
+            border: 1px solid #94a3b8;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .caption {
+            font-size: 8pt;
+            color: #64748b;
+            margin-top: 6px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .code-block {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 8.5pt;
+            line-height: 1.45;
+            margin: 6px 0 10px 0;
+            white-space: pre-wrap;
+            border: 1px solid #1e293b;
+        }
+
+        .code-block .kw { color: #f43f5e; font-weight: bold; }
+        .code-block .fn { color: #38bdf8; }
+        .code-block .st { color: #a3e635; }
+        .code-block .at { color: #fbbf24; }
+        .code-block .tg { color: #818cf8; font-weight: bold; }
+
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 8pt;
+        }
+
+        .table-custom th, .table-custom td {
+            border: 1px solid #cbd5e1;
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        .table-custom th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .table-custom tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        .card-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 3px solid #0d9488;
+            border-radius: 5px;
+            padding: 8px 14px;
+            margin-bottom: 14px;
+            font-size: 8.5pt;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        .tag {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 8pt;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HALAMAN 1 -->
+    <div class="cover">
+        <div class="badge">Dokumentasi Proyek Praktikum Next.js</div>
+        <h1>Laporan Penjelasan Kode Halaman CV</h1>
+        <p class="subtitle">Analisis Struktur HTML Semantik, Komponen React, dan Styling Tailwind CSS</p>
+        <div class="meta-box">
+            <div><strong>Pengembang:</strong> Bhayu Satria Sugara</div>
+            <div><strong>File Target:</strong> <code>app/cv/page.js</code></div>
+            <div><strong>Framework:</strong> Next.js 15+ & Tailwind CSS</div>
+            <div><strong>Rute URL:</strong> <code>http://localhost:3000/cv</code></div>
+        </div>
+    </div>
+
+    <h2>1. Pendahuluan & Ringkasan Halaman</h2>
+    <p>
+        Halaman CV (Curriculum Vitae) dibuat pada file <code>app/cv/page.js</code> menggunakan paradigma <strong>App Router</strong> Next.js. Halaman ini berfungsi mempublikasikan profil profesional kandidat pengembang secara modern, terstruktur, responsif di segala ukuran layar, serta memiliki standar aksesibilitas tinggi (*accessibility*) melalui penerapan tag <strong>HTML Semantik</strong>.
+    </p>
+    <p>
+        Penerapan teknologi pada halaman ini mencakup:
+    </p>
+    <ul>
+        <li><strong>Next.js File-system Routing:</strong> Folder <code>app/cv</code> secara otomatis menjadi endpoint URL <code>/cv</code> yang dapat diakses di peramban web.</li>
+        <li><strong>React Functional Component & JSX:</strong> Menggabungkan sintaks markup HTML dengan kekuatan ekspresi dinamis JavaScript dalam satu file terpadu.</li>
+        <li><strong>Tailwind CSS (Utility-First):</strong> Membangun tata letak adaptif menggunakan flexbox, css grid, serta varian <code>dark:</code> untuk mendukung tema gelap (*Dark Mode*).</li>
+        <li><strong>Aksesibilitas & SEO:</strong> Memastikan hierarki heading tertata dari <code>&lt;h1&gt;</code> hingga <code>&lt;h3&gt;</code> tanpa ada tingkatan yang terlewat, serta seluruh form terhubung dengan labelnya.</li>
+    </ul>
+
+    <h2>2. Rekapitulasi Struktur Halaman</h2>
+    <table class="table-custom">
+        <thead>
+            <tr>
+                <th style="width: 20%;">Bagian</th>
+                <th style="width: 30%;">Tag Semantik</th>
+                <th style="width: 50%;">Fungsi & Perilaku</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Header & Nav</strong></td>
+                <td><code>&lt;header&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;nav&gt;</code></td>
+                <td>Menampilkan identitas utama dan navigasi tautan halus ke bagian-bagian CV.</td>
+            </tr>
+            <tr>
+                <td><strong>Tentang Saya</strong></td>
+                <td><code>&lt;section&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code></td>
+                <td>Foto profil bundar dengan keterangan kota dan paragraf perkenalan berpenekanan (strong/em).</td>
+            </tr>
+            <tr>
+                <td><strong>Pendidikan</strong></td>
+                <td><code>&lt;table&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code></td>
+                <td>Tabel formal riwayat sekolah dan perguruan tinggi bergaris rapi.</td>
+            </tr>
+            <tr>
+                <td><strong>Keahlian</strong></td>
+                <td><code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code> (Nested List)</td>
+                <td>Daftar bersarang mengelompokkan keterampilan teknologi web dan pendukung.</td>
+            </tr>
+            <tr>
+                <td><strong>Pengalaman</strong></td>
+                <td><code>&lt;article&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;ol&gt;</code></td>
+                <td>Kartu pengalaman kerja magang dengan urutan tanggung jawab bernomor.</td>
+            </tr>
+            <tr>
+                <td><strong>Video</strong></td>
+                <td><code>&lt;video&gt;</code> (controls)</td>
+                <td>Pemutar video interaktif dengan tombol kontrol putar, volume, dan layar penuh.</td>
+            </tr>
+            <tr>
+                <td><strong>Kontak</strong></td>
+                <td><code>&lt;form&gt;</code>, <code>&lt;label htmlFor&gt;</code>, <code>&lt;input&gt;</code></td>
+                <td>Formulir kontak 2-kolom responsif untuk tawaran kerja atau proyek.</td>
+            </tr>
+            <tr>
+                <td><strong>Footer</strong></td>
+                <td><code>&lt;footer&gt;</code></td>
+                <td>Hak cipta tahun 2026 dan alamat kontak email pengembang.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- HALAMAN 2: SCREENSHOT -->
+    <h2>3. Hasil Tangkapan Layar (Screenshot Halaman Web)</h2>
+    <p>
+        Berikut adalah tangkapan layar penuh halaman CV yang dirender secara nyata pada browser Google Chrome / Microsoft Edge dengan mode gelap (*Dark Mode*):
+    </p>
+
+    <div class="screenshot-wrapper">
+        <img class="screenshot-img" src="screenshot-desktop.png" alt="Screenshot Halaman CV" />
+    </div>
+    <div class="caption">Gambar: Tampilan Lengkap Halaman CV Pengembang (Bhayu Satria Sugara) pada Rute <code>/cv</code></div>
+
+    <div class="page-break"></div>
+
+    <!-- HALAMAN 3: BEDAH KODE BAGIAN A & B -->
+    <h2>4. Analisis Kode Sumber (app/cv/page.js) - Bagian 1</h2>
+
+    <h3>A. Deklarasi Komponen dan Variabel Dinamis</h3>
+    <div class="code-block"><span class="kw">export default function</span> <span class="fn">HalamanCV</span>() {
+    <span class="kw">const</span> nama = <span class="st">"Bhayu Satria Sugara"</span>;
+    <span class="kw">const</span> kelasInput = <span class="st">"w-full rounded-lg border border-slate-300 px-3 py-2"</span>;
+    <span class="kw">return</span> ( ... );
+}</div>
+    <div class="card-box">
+        <strong>Penjelasan:</strong>
+        <ul>
+            <li><code>export default</code>: Komponen utama yang dicari oleh Next.js untuk merender rute URL <code>/cv</code>.</li>
+            <li><code>const nama</code>: Mengadopsi prinsip <em>DRY (Don't Repeat Yourself)</em>. Nama hanya didefinisikan satu kali, lalu dipanggil di berbagai elemen dengan kurung kurawal <code>{nama}</code>.</li>
+            <li><code>const kelasInput</code>: Menyeragamkan styling kolom form input dan textarea agar kode bersih dan mudah diperbarui.</li>
+        </ul>
+    </div>
+
+    <h3>B. Header & Navigasi Semantik</h3>
+    <div class="code-block">&lt;<span class="tg">header</span> <span class="at">className</span>=<span class="st">"bg-teal-800 text-white"</span>&gt;
+    &lt;<span class="tg">div</span> <span class="at">className</span>=<span class="st">"mx-auto flex max-w-4xl flex-col gap-4 px-4 py-8 md:flex-row md:items-end md:justify-between"</span>&gt;
+        &lt;<span class="tg">div</span>&gt;
+            &lt;<span class="tg">h1</span> <span class="at">className</span>=<span class="st">"text-3xl font-bold md:text-4xl"</span>&gt;{nama}&lt;/<span class="tg">h1</span>&gt;
+            &lt;<span class="tg">p</span> <span class="at">className</span>=<span class="st">"text-teal-100"</span>&gt;Junior Programmer&lt;/<span class="tg">p</span>&gt;
+        &lt;/<span class="tg">div</span>&gt;
+        &lt;<span class="tg">nav</span> <span class="at">className</span>=<span class="st">"flex flex-wrap gap-4 text-sm"</span>&gt;
+            &lt;<span class="tg">a</span> <span class="at">href</span>=<span class="st">"#tentang"</span> <span class="at">className</span>=<span class="st">"hover:underline"</span>&gt;Tentang&lt;/<span class="tg">a</span>&gt;
+            &lt;<span class="tg">a</span> <span class="at">href</span>=<span class="st">"#pendidikan"</span> <span class="at">className</span>=<span class="st">"hover:underline"</span>&gt;Pendidikan&lt;/<span class="tg">a</span>&gt;
+            &lt;<span class="tg">a</span> <span class="at">href</span>=<span class="st">"#keahlian"</span> <span class="at">className</span>=<span class="st">"hover:underline"</span>&gt;Keahlian&lt;/<span class="tg">a</span>&gt;
+            &lt;<span class="tg">a</span> <span class="at">href</span>=<span class="st">"#pengalaman"</span> <span class="at">className</span>=<span class="st">"hover:underline"</span>&gt;Pengalaman&lt;/<span class="tg">a</span>&gt;
+            &lt;<span class="tg">a</span> <span class="at">href</span>=<span class="st">"#kontak"</span> <span class="at">className</span>=<span class="st">"hover:underline"</span>&gt;Kontak&lt;/<span class="tg">a</span>&gt;
+        &lt;/<span class="tg">nav</span>&gt;
+    &lt;/<span class="tg">div</span>&gt;
+&lt;/<span class="tg">header</span>&gt;</div>
+    <div class="card-box">
+        <strong>Poin Desain:</strong>
+        <ul>
+            <li><code>max-w-4xl mx-auto</code>: Menjaga lebar konten tetap terpusat di tengah layar desktop.</li>
+            <li><code>flex-col md:flex-row</code>: Di layar HP menu bertumpuk ke bawah, lalu otomatis berjajar horizontal di layar medium ($\ge 768\text{px}$).</li>
+            <li>Hanya ada <strong>satu</strong> <code>&lt;h1&gt;</code> di seluruh halaman demi kepatuhan standar SEO dan aksesibilitas.</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- HALAMAN 4: BEDAH KODE BAGIAN C & D -->
+    <h2>5. Analisis Kode Sumber (app/cv/page.js) - Bagian 2</h2>
+
+    <h3>C. Section Tentang Saya & Foto Profil</h3>
+    <div class="code-block">&lt;<span class="tg">section</span> <span class="at">id</span>=<span class="st">"tentang"</span> <span class="at">className</span>=<span class="st">"flex flex-col gap-6 md:flex-row md:items-center"</span>&gt;
+    &lt;<span class="tg">figure</span> <span class="at">className</span>=<span class="st">"shrink-0"</span>&gt;
+        &lt;<span class="tg">img</span> <span class="at">src</span>=<span class="st">"/foto.jpg"</span> <span class="at">alt</span>={<span class="st">`Foto ${nama} memakai kemeja biru`</span>}
+             <span class="at">width</span>={160} <span class="at">height</span>={160} <span class="at">className</span>=<span class="st">"h-40 w-40 rounded-full object-cover"</span> /&gt;
+        &lt;<span class="tg">figcaption</span> <span class="at">className</span>=<span class="st">"mt-2 text-center text-sm text-slate-600 dark:text-slate-300"</span>&gt;
+            {nama}, Samarinda
+        &lt;/<span class="tg">figcaption</span>&gt;
+    &lt;/<span class="tg">figure</span>&gt;
+    &lt;<span class="tg">div</span>&gt;
+        &lt;<span class="tg">h2</span> <span class="at">className</span>=<span class="st">"mb-2 text-2xl font-bold"</span>&gt;Tentang Saya&lt;/<span class="tg">h2</span>&gt;
+        &lt;<span class="tg">p</span> <span class="at">className</span>=<span class="st">"leading-relaxed text-slate-700 dark:text-slate-300"</span>&gt;
+            Saya mahasiswa &lt;<span class="tg">strong</span>&gt;D4 Teknik Rekayasa Perangkat Lunak&lt;/<span class="tg">strong</span>&gt; yang sedang mempersiapkan
+            sertifikasi &lt;<span class="tg">em</span>&gt;Junior Programmer&lt;/<span class="tg">em</span>&gt;.
+        &lt;/<span class="tg">p</span>&gt;
+    &lt;/<span class="tg">div</span>&gt;
+&lt;/<span class="tg">section</span>&gt;</div>
+    <div class="card-box">
+        <strong>Poin Desain:</strong>
+        <ul>
+            <li><span class="tag">&lt;figure&gt;</span> & <span class="tag">&lt;figcaption&gt;</span>: Standar semantik untuk gambar mandiri beserta keterangannya.</li>
+            <li><code>rounded-full object-cover h-40 w-40</code>: Memotong foto menjadi lingkaran sempurna tanpa distorsi rasio gambar.</li>
+            <li>Penggunaan <span class="tag">&lt;strong&gt;</span> untuk penekanan penting dan <span class="tag">&lt;em&gt;</span> untuk istilah teknis.</li>
+        </ul>
+    </div>
+
+    <h3>D. Tabel Riwayat Pendidikan Formal</h3>
+    <div class="code-block">&lt;<span class="tg">table</span> <span class="at">className</span>=<span class="st">"w-full overflow-hidden rounded-lg border border-slate-200 text-left"</span>&gt;
+    &lt;<span class="tg">caption</span> <span class="at">className</span>=<span class="st">"mb-2 text-left text-sm text-slate-600 dark:text-slate-300"</span>&gt;Pendidikan formal&lt;/<span class="tg">caption</span>&gt;
+    &lt;<span class="tg">thead</span> <span class="at">className</span>=<span class="st">"bg-slate-100 dark:bg-slate-800"</span>&gt;
+        &lt;<span class="tg">tr</span>&gt;
+            &lt;<span class="tg">th</span> <span class="at">className</span>=<span class="st">"px-4 py-2"</span>&gt;Jenjang&lt;/<span class="tg">th</span>&gt;
+            &lt;<span class="tg">th</span> <span class="at">className</span>=<span class="st">"px-4 py-2"</span>&gt;Institusi&lt;/<span class="tg">th</span>&gt;
+            &lt;<span class="tg">th</span> <span class="at">className</span>=<span class="st">"px-4 py-2"</span>&gt;Tahun Lulus&lt;/<span class="tg">th</span>&gt;
+        &lt;/<span class="tg">tr</span>&gt;
+    &lt;/<span class="tg">thead</span>&gt;
+    &lt;<span class="tg">tbody</span>&gt;
+        &lt;<span class="tg">tr</span> <span class="at">className</span>=<span class="st">"border-t border-slate-200"</span>&gt;
+            &lt;<span class="tg">td</span> <span class="at">className</span>=<span class="st">"px-4 py-2"</span>&gt;SMK&lt;/<span class="tg">td</span>&gt;
+            &lt;<span class="tg">td</span> <span class="at">className</span>=<span class="st">"px-4 py-2"</span>&gt;SMK Negeri 7 Samarinda&lt;/<span class="tg">td</span>&gt;
+            &lt;<span class="tg">td</span> <span class="at">className</span>=<span class="st">"px-4 py-2"</span>&gt;2025&lt;/<span class="tg">td</span>&gt;
+        &lt;/<span class="tg">tr</span>&gt;
+    &lt;/<span class="tg">tbody</span>&gt;
+&lt;/<span class="tg">table</span>&gt;</div>
+    <div class="card-box">
+        <strong>Poin Desain:</strong>
+        <ul>
+            <li><code>&lt;caption&gt;</code>: Memberi judul kontekstual pada tabel untuk kemudahan pembaca layar (*screen reader*).</li>
+            <li><code>border-t border-slate-200</code>: Memberikan garis pembatas minimalis dan elegan antar baris data.</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- HALAMAN 5: BEDAH KODE BAGIAN E, F & KESIMPULAN -->
+    <h2>6. Analisis Kode Sumber (app/cv/page.js) - Bagian 3</h2>
+
+    <h3>E. Keahlian & Pengalaman Kerja Semantik</h3>
+    <div class="code-block"><span class="kw">{/* Keahlian: Unordered List bersarang */}</span>
+&lt;<span class="tg">ul</span> <span class="at">className</span>=<span class="st">"list-disc space-y-1 pl-6"</span>&gt;
+    &lt;<span class="tg">li</span>&gt;Pemrograman web
+        &lt;<span class="tg">ul</span> <span class="at">className</span>=<span class="st">"list-[circle] pl-6"</span>&gt;
+            &lt;<span class="tg">li</span>&gt;HTML, JSX, Tailwind CSS, PHP, Laravel, Git, Github&lt;/<span class="tg">li</span>&gt;
+            &lt;<span class="tg">li</span>&gt;JavaScript dasar&lt;/<span class="tg">li</span>&gt;
+        &lt;/<span class="tg">ul</span>&gt;
+    &lt;/<span class="tg">li</span>&gt;
+&lt;/<span class="tg">ul</span>&gt;
+
+<span class="kw">{/* Pengalaman: Tag Article dengan Ordered List */}</span>
+&lt;<span class="tg">article</span> <span class="at">className</span>=<span class="st">"rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800"</span>&gt;
+    &lt;<span class="tg">h3</span> <span class="at">className</span>=<span class="st">"text-lg font-semibold"</span>&gt;Magang — PT Mahakam Indonusa&lt;/<span class="tg">h3</span>&gt;
+    &lt;<span class="tg">p</span> <span class="at">className</span>=<span class="st">"text-sm text-slate-600 dark:text-slate-300"</span>&gt;Juli–Desember 2025&lt;/<span class="tg">p</span>&gt;
+    &lt;<span class="tg">ol</span> <span class="at">className</span>=<span class="st">"mt-3 list-decimal space-y-1 pl-6"</span>&gt;
+        &lt;<span class="tg">li</span>&gt;Membuat Website Company Profile&lt;/<span class="tg">li</span>&gt;
+        &lt;<span class="tg">li</span>&gt;Membantu Invoicing Perusahaan&lt;/<span class="tg">li</span>&gt;
+    &lt;/<span class="tg">ol</span>&gt;
+&lt;/<span class="tg">article</span>&gt;</div>
+
+    <h3>F. Formulir Kontak Berbasis CSS Grid</h3>
+    <div class="code-block">&lt;<span class="tg">form</span> <span class="at">className</span>=<span class="st">"grid gap-4 md:grid-cols-2"</span>&gt;
+    &lt;<span class="tg">div</span> <span class="at">className</span>=<span class="st">"space-y-1"</span>&gt;
+        &lt;<span class="tg">label</span> <span class="at">htmlFor</span>=<span class="st">"nama"</span> <span class="at">className</span>=<span class="st">"block text-sm font-semibold"</span>&gt;Nama&lt;/<span class="tg">label</span>&gt;
+        &lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">id</span>=<span class="st">"nama"</span> <span class="at">name</span>=<span class="st">"nama"</span> <span class="at">required</span> <span class="at">className</span>={<span class="st">kelasInput</span>} /&gt;
+    &lt;/<span class="tg">div</span>&gt;
+    ...
+    &lt;<span class="tg">div</span> <span class="at">className</span>=<span class="st">"space-y-1 md:col-span-2"</span>&gt;
+        &lt;<span class="tg">label</span> <span class="at">htmlFor</span>=<span class="st">"pesan"</span> ...&gt;Pesan&lt;/<span class="tg">label</span>&gt;
+        &lt;<span class="tg">textarea</span> <span class="at">id</span>=<span class="st">"pesan"</span> <span class="at">name</span>=<span class="st">"pesan"</span> <span class="at">rows</span>={4} <span class="at">required</span> <span class="at">className</span>={<span class="st">kelasInput</span>}&gt;&lt;/<span class="tg">textarea</span>&gt;
+    &lt;/<span class="tg">div</span>&gt;
+&lt;/<span class="tg">form</span>&gt;</div>
+    <div class="card-box">
+        <strong>Poin Penting:</strong>
+        <ul>
+            <li><code>htmlFor</code>: Pengganti atribut <code>for</code> standar HTML di JSX agar tidak bentrok dengan keyword perulangan JavaScript.</li>
+            <li><code>grid md:grid-cols-2</code>: Kolom Nama & Email menjadi 2 kolom berdampingan di layar desktop.</li>
+            <li><code>md:col-span-2</code>: Mengatur elemen Pesan dan Tombol Kirim agar merentang penuh selebar 2 kolom.</li>
+        </ul>
+    </div>
+
+    <h2>7. Kesimpulan</h2>
+    <p>
+        Penerapan Next.js dan Tailwind CSS pada file <code>app/cv/page.js</code> membuktikan kemudahan dalam membangun website profil profesional: kode tetap rapi, performa cepat berkat rendering statis, aksesibilitas terjaga penuh melalui HTML Semantik, serta tata letak yang adaptif dan nyaman dipandang di semua perangkat.
+    </p>
+
+    <div style="margin-top: 24px; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 10px; font-size: 7.5pt; color: #94a3b8;">
+        Dokumentasi Laporan Resmi &bull; Bhayu Satria Sugara &bull; Proyek Raincamp Next.js
+    </div>
+
+</body>
+</html>
