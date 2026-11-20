@@ -2,14 +2,7 @@ export default function ProdukMini() {
     return (
         <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100">
             <nav className="flex items-center justify-between bg-slate-900 px-6 py-4 text-white">
-                <div className="flex items-center gap-3">
-                    <img
-                        src="/deepseek-icon.svg"
-                        alt="DeepSeek Logo"
-                        className="h-8 w-auto"
-                    />
-                    <span className="text-xl font-bold">TokoKita</span>
-                </div>
+                <span className="text-xl font-bold">TokoKita</span>
                 <div className="flex gap-6 text-sm">
                     <a href="#produk" className="hover:text-teal-300">
                         Produk
@@ -30,6 +23,16 @@ export default function ProdukMini() {
                     className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
                 >
                     <article className="rounded-xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+                        <div className="mb-4">
+                            <img
+                                src="/deepseek-icon.svg"
+                                alt="DeepSeek Logo"
+                                className="h-9 w-auto"
+                            />
+                            <p className="mt-1 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                                DeepSeek
+                            </p>
+                        </div>
                         <h2 className="text-lg font-semibold">Kopi Toraja 250 g</h2>
                         <p className="mt-1 text-slate-600 dark:text-slate-300">
                             Biji kopi arabika sangrai sedang.
@@ -40,6 +43,16 @@ export default function ProdukMini() {
                     </article>
 
                     <article className="rounded-xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+                        <div className="mb-4">
+                            <img
+                                src="/deepseek-icon.svg"
+                                alt="DeepSeek Logo"
+                                className="h-9 w-auto"
+                            />
+                            <p className="mt-1 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                                DeepSeek
+                            </p>
+                        </div>
                         <h2 className="text-lg font-semibold">Gula Aren 500 g</h2>
                         <p className="mt-1 text-slate-600 dark:text-slate-300">
                             Gula aren cetak tanpa pengawet.
@@ -50,6 +63,16 @@ export default function ProdukMini() {
                     </article>
 
                     <article className="rounded-xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+                        <div className="mb-4">
+                            <img
+                                src="/deepseek-icon.svg"
+                                alt="DeepSeek Logo"
+                                className="h-9 w-auto"
+                            />
+                            <p className="mt-1 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                                DeepSeek
+                            </p>
+                        </div>
                         <h2 className="text-lg font-semibold">Teh Hijau 100 g</h2>
                         <p className="mt-1 text-slate-600 dark:text-slate-300">
                             Daun teh pilihan dari dataran tinggi.
