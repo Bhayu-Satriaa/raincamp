@@ -33,12 +33,12 @@ export default function ProdukMini() {
                                 DeepSeek
                             </p>
                         </div>
-                        <h2 className="text-lg font-semibold">Kopi Toraja 250 g</h2>
+                        <h2 className="text-lg font-semibold">250M DeepSeek V4.1 Flash</h2>
                         <p className="mt-1 text-slate-600 dark:text-slate-300">
-                            Biji kopi arabika sangrai sedang.
+                            Deepseek V4.1 Flash - 250,000,000 tokens
                         </p>
                         <p className="mt-4 text-xl font-bold text-teal-700 dark:text-teal-300">
-                            Rp85.000
+                            Rp27.816
                         </p>
                     </article>
 
@@ -53,12 +53,12 @@ export default function ProdukMini() {
                                 DeepSeek
                             </p>
                         </div>
-                        <h2 className="text-lg font-semibold">Gula Aren 500 g</h2>
+                        <h2 className="text-lg font-semibold">500M DeepSeek V4.1 Flash</h2>
                         <p className="mt-1 text-slate-600 dark:text-slate-300">
-                            Gula aren cetak tanpa pengawet.
+                            Deepseek V4.1 Flash - 500,000,000 tokens
                         </p>
                         <p className="mt-4 text-xl font-bold text-teal-700 dark:text-teal-300">
-                            Rp32.000
+                            Rp43.810
                         </p>
                     </article>
 
@@ -73,12 +73,12 @@ export default function ProdukMini() {
                                 DeepSeek
                             </p>
                         </div>
-                        <h2 className="text-lg font-semibold">Teh Hijau 100 g</h2>
+                        <h2 className="text-lg font-semibold">1B DeepSeek V4.1 Flash</h2>
                         <p className="mt-1 text-slate-600 dark:text-slate-300">
-                            Daun teh pilihan dari dataran tinggi.
+                            Deepseek V4.1 Flash - 1,000,000,000 tokens
                         </p>
                         <p className="mt-4 text-xl font-bold text-teal-700 dark:text-teal-300">
-                            Rp27.500
+                            Rp82.350
                         </p>
                     </article>
                 </section>

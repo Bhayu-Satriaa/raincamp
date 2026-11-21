@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Laporan Praktik Pertemuan 2 - JavaScript Modern & Pengolah Data Nilai</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm 14mm 12mm 14mm;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            line-height: 1.5;
+            font-size: 9.5pt;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cover {
+            text-align: center;
+            padding: 16px 10px 14px;
+            border-bottom: 2px solid #2563eb;
+            margin-bottom: 16px;
+        }
+
+        .cover .badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 3px 12px;
+            border-radius: 9999px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .cover h1 {
+            font-size: 17pt;
+            color: #0f172a;
+            margin: 0 0 4px 0;
+            font-weight: 800;
+        }
+
+        .cover p.subtitle {
+            font-size: 9.5pt;
+            color: #475569;
+            margin: 0 0 10px 0;
+        }
+
+        .meta-box {
+            display: inline-flex;
+            gap: 20px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 6px 16px;
+            font-size: 8.5pt;
+            color: #334155;
+        }
+
+        .meta-box strong {
+            color: #1d4ed8;
+        }
+
+        h2 {
+            font-size: 11.5pt;
+            color: #1d4ed8;
+            border-left: 4px solid #2563eb;
+            padding-left: 8px;
+            margin-top: 14px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 10pt;
+            color: #0f172a;
+            margin-top: 10px;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0 0 6px 0;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 0 0 8px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        pre {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 8pt;
+            line-height: 1.35;
+            overflow-x: auto;
+            margin: 6px 0 10px 0;
+            border: 1px solid #1e293b;
+        }
+
+        code {
+            font-family: 'Consolas', 'Courier New', monospace;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 1px 4px;
+            border-radius: 4px;
+            font-size: 8.5pt;
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8.5pt;
+            margin: 8px 0 12px 0;
+        }
+
+        .table-custom th, .table-custom td {
+            border: 1px solid #cbd5e1;
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        .table-custom th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .table-custom tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        /* Screenshot Placeholder Styles */
+        .placeholder-box {
+            border: 2px dashed #94a3b8;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            margin: 10px 0 14px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+        }
+
+        .placeholder-box .icon {
+            font-size: 26pt;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .placeholder-box .title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .placeholder-box .desc {
+            font-size: 8.5pt;
+            color: #64748b;
+            max-width: 480px;
+            line-height: 1.4;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .stat-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .stat-card .label {
+            font-size: 7.5pt;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .stat-card .val {
+            font-size: 13pt;
+            font-weight: 800;
+            color: #0f172a;
+            margin-top: 2px;
+        }
+
+        .callout {
+            background-color: #eff6ff;
+            border-left: 3px solid #3b82f6;
+            padding: 8px 12px;
+            border-radius: 0 6px 6px 0;
+            margin: 8px 0;
+            font-size: 8.5pt;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- COVER / HEADER -->
+    <div class="cover">
+        <span class="badge">Laporan Resmi Praktikum Pemrograman Web</span>
+        <h1>Pengolahan Data Nilai Mahasiswa & ES6+ Modern</h1>
+        <p class="subtitle">Penerapan Pure Functions, Immutability, Modular Library, dan Dashboard Responsif Next.js 16</p>
+        
+        <div class="meta-box">
+            <span><strong>Nama:</strong> Bhayu Satria Sugara</span>
+            <span><strong>Prodi:</strong> D4 Teknik Rekayasa Perangkat Lunak</span>
+            <span><strong>Institusi:</strong> Politeknik Pertanian Negeri Samarinda</span>
+            <span><strong>Tanggal:</strong> 21 November 2026</span>
+        </div>
+    </div>
+
+    <!-- BAB 1: PENDAHULUAN & ARSITEKTUR -->
+    <h2>1. Arsitektur Proyek & Mental Model (Next.js vs Laravel)</h2>
+    <p>
+        Pada praktikum Pertemuan 2, fokus utama dititikberatkan pada penguasaan JavaScript modern (ES6+), operasi array murni (<em>immutable</em>), dan pemisahan tugas secara modular. Perbandingan arsitektur yang diterapkan meliputi:
+    </p>
+    <ul>
+        <li><strong>Konvensi Folder <code>data/</code>:</strong> Khusus menyimpan data mentah statis (seperti <code>data/barang.json</code>) tanpa komputasi.</li>
+        <li><strong>Konvensi Folder <code>lib/</code>:</strong> Berisi pustaka logika, helper format (<code>formatRupiah</code>, <code>formatTanggal</code>), dan pustaka murni komputasi (<code>lib/hitung.js</code>).</li>
+        <li><strong>Immutability:</strong> Menjaga integritas data asli dengan menghindari mutasi langsung seperti <code>.push()</code> atau <code>.sort()</code>, melainkan memanfaatkan <em>spread operator</em> <code>[...array]</code> dan method bawaan non-mutasi (<code>.map()</code>, <code>.filter()</code>, <code>.reduce()</code>).</li>
+    </ul>
+
+    <!-- BAB 2: IMPLEMENTASI MODUL B (SPRINT) -->
+    <h2>2. Sprint Pengolah Data Nilai Mahasiswa (Modul B)</h2>
+    <p>
+        Sistem dibangun untuk mengolah dan menganalisis data 20 mahasiswa secara otomatis dan menyajikannya ke dalam dashboard Next.js interaktif.
+    </p>
+
+    <div class="card-grid">
+        <div class="stat-card">
+            <div class="label">Total Mahasiswa</div>
+            <div class="val">20</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Rata-rata Kelas</div>
+            <div class="val">74.14</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Nilai Tertinggi</div>
+            <div class="val">95.20</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Tingkat Kelulusan</div>
+            <div class="val">14 (70%)</div>
+        </div>
+    </div>
+
+    <h3>A. Pustaka Fungsi Modular (<code>lib/hitung.js</code>)</h3>
+    <p>
+        Seluruh logika perhitungan didefinisikan ke dalam 14 fungsi murni (<em>pure functions</em>) yang diekspor secara modular:
+    </p>
+    <pre><code>import { BOBOT } from "./nilai.js";
+
+// Nilai Akhir Berbobot (Tugas 30%, UTS 30%, UAS 40%) dibulatkan 2 desimal
+export const nilaiAkhir = ({ tugas, uts, uas }, bobot = BOBOT) =>
+  Math.round((tugas * bobot.tugas + uts * bobot.uts + uas * bobot.uas) * 100) / 100;
+
+// Penentuan Huruf Mutu
+export function hurufMutu(angka) {
+  if (angka >= 85) return "A";
+  if (angka >= 75) return "B";
+  if (angka >= 65) return "C";
+  if (angka >= 50) return "D";
+  return "E";
+}
+
+// Menentukan Kelulusan (Standar >= 65)
+export const lulus = (angka, batas = 65) => angka >= batas;
+
+// Pengurutan Array secara Immutable
+export const urutkan = (daftar, kolom, arah = "turun") =>
+  [...daftar].sort((a, b) => (arah === "naik" ? a[kolom] - b[kolom] : b[kolom] - a[kolom]));
+
+// Peringkat N Teratas
+export const peringkat = (daftar, n = 3) => urutkan(daftar, "akhir").slice(0, n);</code></pre>
+
+    <h3>B. Hasil Pengujian Verifikasi Terminal (<code>latihan/uji-hitung.mjs</code>)</h3>
+    <p>
+        Pengujian logika komputasi terhadap kunci modul menghasilkan output yang presisi 100%:
+    </p>
+    <pre><code>PS D:\raincamp> node latihan/uji-hitung.mjs
+Statistik: { jumlahMahasiswa: 20, rataRata: 74.14, tertinggi: 95.2, terendah: 44.5, jumlahLulus: 14, persenLulus: 70 }
+Peringkat 3 Teratas: [ 'Maya Anggraini 95.2', 'Citra Dewi 92', 'Joko Susilo 89.3' ]
+Distribusi Huruf: { A: 5, B: 5, C: 4, D: 5, E: 1 }
+Pencarian NIM (2401008 & 9999): 44.5 undefined
+Rata-rata Informatika: 69.05 | Rata-rata Sistem Informasi: 80.38</code></pre>
+
+    <div class="page-break"></div>
+
+    <!-- BAB 3: SCREENSHOT & EVALUASI -->
+    <h2>3. Evaluasi & Latihan Mandiri (Modul C3 & C4)</h2>
+    <p>
+        Bagian berikut menyajikan dokumentasi hasil evaluasi pemahaman JavaScript modern (C3) dan pengerjaan latihan topik diagnostik (C4) sesuai instruksi dosen.
+    </p>
+
+    <!-- PLACEHOLDER C3 -->
+    <h3>A. Dokumentasi Evaluasi C3: Soal Tebak Output</h3>
+    <p>
+        Menampilkan tangkapan layar hasil eksekusi 11 nomor evaluasi tebak output JavaScript modern (Scope, Destructuring, Spread, Optional Chaining, dan Loop):
+    </p>
+    
+    <div class="placeholder-box">
+        <!-- TIPS: Ganti blok div ini dengan tag <img> saat screenshot sudah siap -->
+        <!-- Contoh: <img src="screenshot-c3.png" alt="Screenshot Evaluasi C3"> -->
+        <div class="icon">📷</div>
+        <div class="title">[ PLACEHOLDER SCREENSHOT SOAL C3: TEBAK OUTPUT ]</div>
+        <div class="desc">
+            Silakan tempelkan screenshot terminal (<code>node latihan/tebak-output.mjs</code>) atau screenshot halaman web <code>http://localhost:3000/evaluasi</code> pada area ini.
+        </div>
+    </div>
+
+    <!-- PLACEHOLDER C4 -->
+    <h3>B. Dokumentasi Latihan C4: Topik Diagnostik</h3>
+    <p>
+        Menampilkan tangkapan layar hasil eksekusi script latihan tambahan per topik diagnostik (Tipe Data, FizzBuzz 1–30, Arrow Function, dan Array Mapping):
+    </p>
+
+    <div class="placeholder-box">
+        <!-- TIPS: Ganti blok div ini dengan tag <img> saat screenshot sudah siap -->
+        <!-- Contoh: <img src="screenshot-c4.png" alt="Screenshot Latihan C4"> -->
+        <div class="icon">📷</div>
+        <div class="title">[ PLACEHOLDER SCREENSHOT LATIHAN C4: TOPIK DIAGNOSTIK ]</div>
+        <div class="desc">
+            Silakan tempelkan screenshot terminal dari eksekusi file <code>node latihan/tambahan.js</code> pada area ini.
+        </div>
+    </div>
+
+    <!-- BAB 4: KESIMPULAN -->
+    <h2>4. Refleksi & Kesimpulan</h2>
+    <p>
+        Melalui rangkaian praktikum ini, implementasi komputasi nilai mahasiswa berhasil dipisahkan secara bersih antara lapisan data (<code>lib/nilai.js</code>), lapisan logika bisnis (<code>lib/hitung.js</code>), dan lapisan antarmuka pengguna (<code>app/mahasiswa/page.js</code>). Penggunaan Next.js 16 dengan <em>Partial Prerendering</em> (PPR) dan <em>Suspense boundary</em> memastikan aplikasi tetap cepat, teroptimasi secara statis, namun tetap adaptif terhadap query parameter penyaringan prodi.
+    </p>
+
+</body>
+</html>
