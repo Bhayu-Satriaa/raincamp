@@ -1,0 +1,10 @@
+flowchart TD
+  A([Mulai]) --> B["kiri ← 0, kanan ← n - 1"]
+  B --> C{"kiri ≤ kanan?"}
+  C -- Tidak --> X[/Kembalikan -1/] --> Z([Selesai])
+  C -- Ya --> D["tengah ← floor((kiri + kanan) / 2)"]
+  D --> E{"arr[tengah] = target?"}
+  E -- Ya --> Y[/Kembalikan tengah/] --> Z
+  E -- Tidak --> F{"arr[tengah] < target?"}
+  F -- Ya --> G["kiri ← tengah + 1"] --> C
+  F -- Tidak --> H["kanan ← tengah - 1"] --> C

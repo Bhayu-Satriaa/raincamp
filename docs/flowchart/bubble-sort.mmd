@@ -1,0 +1,13 @@
+flowchart TD
+  A([Mulai]) --> B["a ← salinan arr, i ← 0"]
+  B --> C{"i < n - 1?"}
+  C -- Tidak --> R[/Kembalikan a/] --> Z([Selesai])
+  C -- Ya --> D["adaTukar ← salah, j ← 0"]
+  D --> E{"j < n - 1 - i?"}
+  E -- Ya --> F{"a[j] > a[j+1]?"}
+  F -- Ya --> G["tukar a[j] dan a[j+1], adaTukar ← benar"]
+  F -- Tidak --> H["j ← j + 1"]
+  G --> H --> E
+  E -- Tidak --> K{"adaTukar?"}
+  K -- Tidak --> R
+  K -- Ya --> L["i ← i + 1"] --> C

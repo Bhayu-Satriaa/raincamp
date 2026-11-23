@@ -55,11 +55,28 @@ Dokumen memori ini mencatat profil pengembang, arsitektur proyek, riwayat penger
 | `/format` | `app/format/page.js` | **Modul A2 & A5 (P2)**: Uji coba pustaka format (`formatRupiah`, `formatTanggal`, `singkat`) dan render data JSON dari `data/barang.json`. |
 | `/mahasiswa` | `app/mahasiswa/page.js` | **Modul B (P2 - Sprint)**: Dashboard analitik 20 mahasiswa (4 kartu statistik responsif, 3 panel analitik: Top 3, Distribusi Huruf, Rata-rata per Prodi, serta tabel nilai dengan status kelulusan visual & filter URL `?prodi=...` berbasis Next.js 16 Partial Prerendering). |
 | `/evaluasi` | `app/evaluasi/page.js` | **Modul C3 (P2 - Evaluasi)**: Visualisasi web interaktif 11 soal tebak output JavaScript modern lengkap dengan kode sumber, badge output, dan penjelasan konsep. |
+| `/produk-api` | `app/produk-api/page.js` | **Modul B2 (P3 - Sprint)**: Katalog produk live dari DummyJSON (Server Component async, form pencarian `?q=`, skeleton loading `loading.js`, konversi kurs IDR 16.000, penanda stok merah, format waktu `dayjs` Indonesia, serta penanganan 3 keadaan UI: Berhasil, Kosong, Gagal `role="alert"`). |
 
 ---
 
-## 4. Modul Pertemuan 2: JavaScript Modern, ES6+, & Manipulasi Data
-* **Panduan Sumber:** `modul/2-praktik.docx` (ditambahkan 21 November 2026).
+## 4. Struktur Modul & Referensi Pelatihan (`modul/`)
+
+Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi per pertemuan:
+
+* **`modul/P01/` — Pertemuan 1: Next.js, JSX, HTML Semantik, dan Tailwind**
+  * **Unit SKKNI:** `J.620100.010.01` (Menggunakan Spesifikasi Bahasa Pemrograman) & `J.620100.019.02` (Menerapkan Perintah Eksekusi Bahasa Pemrograman Berbasis Teks, Grafik, dan Multimedia).
+  * **File:** `2-praktik.pdf` (Kuis Diagnostik & Panduan Praktik Form/Katalog/CV) dan `3-slide.pdf` (Slide presentasi).
+* **`modul/P02/` — Pertemuan 2: JavaScript Modern untuk React**
+  * **Unit SKKNI:** `J.620100.004.02` (Menggunakan Library atau Komponen Pre-Existing), `J.620100.014.01` (Menerapkan Kode Program), dan `J.620100.017.02` (Mengimplementasikan Struktur Data).
+  * **File:** `1-materi.pdf` (Konsep ES6+, modularisasi, method array, immutability), `2-praktik.docx` & `2-praktik.pdf` (Panduan praktik library nilai, hitung, & dashboard mahasiswa), serta `3-slide.pdf` (Slide presentasi).
+* **`modul/P03/` — Pertemuan 3: Algoritma, Async, dan Debugging**
+  * **Unit SKKNI:** `J.620100.022.02` (Mengimplementasikan Algoritma Pemrograman), `J.620100.004.02` (Menggunakan Library atau Komponen Pre-Existing), dan `J.620100.025.02` (Melakukan Debugging).
+  * **File:** `1-materi.pdf` (Konsep Algoritma, Searching & Sorting + Big-O, Async/Await fetch, Dayjs, Debugging), `2-praktik.pdf` (Panduan praktik B1 pustaka algoritma, B2 halaman produk-api, Sesi 4 debugging bug.mjs), dan `3-slide.pdf` (Slide presentasi).
+
+---
+
+## 5. Implementasi Pertemuan 2: JavaScript Modern, ES6+, & Manipulasi Data
+* **Panduan Sumber:** `modul/P02/2-praktik.pdf` & `modul/P02/2-praktik.docx`.
 * **Data Mentah (`data/`):**
   * `data/barang.json`: Data mentah JSON berisi 3 barang pertama dari `lib/barang.js` (validasi kutip ganda, no trailing comma).
 * **Modul Library (`lib/`):**
@@ -81,7 +98,37 @@ Dokumen memori ini mencatat profil pengembang, arsitektur proyek, riwayat penger
 
 ---
 
-## 5. Aset Statis & Dokumentasi
+## 6. Implementasi Pertemuan 3: Algoritma, Async, Fetch, & Web API
+* **Panduan Sumber:** `modul/P03/1-materi.pdf`, `modul/P03/2-praktik.pdf`, & `modul/P03/3-slide.pdf`.
+* **Pustaka Algoritma Murni (`lib/algoritma.js` — Sprint B1):**
+  * `linearSearch(arr, target)`: Pencarian sekuensial ($O(n)$) $\rightarrow$ `{ indeks, langkah }`.
+  * `binarySearch(arr, target)`: Pencarian biner ($O(\log n)$) $\rightarrow$ `{ indeks, langkah }`.
+  * `bubbleSort(arr)`: Pengurutan gelembung ($O(n^2)$) dengan optimasi flag `adaTukar` $\rightarrow$ `{ hasil, perbandingan }`.
+  * `selectionSort(arr)`: Pengurutan seleksi ($O(n^2)$) berbasis pencarian elemen minimum `iMin` $\rightarrow$ `{ hasil, perbandingan }`.
+  * `insertionSort(arr)`: Pengurutan penyisipan ($O(n^2)$) kartu $\rightarrow$ `{ hasil, perbandingan }`.
+  * `urutkanBerdasarkan(daftar, properti, arah)`: Fungsi murni pengurutan objek (*immutable*).
+* **Pustaka Data API (`lib/api.js` — Sprint B2):**
+  * `ambilProduk(kata = "")`: Panggilan aman (*resilient*) ke DummyJSON dengan handling `encodeURIComponent`, simulasi `tunda(800)` untuk loading, dan selalu mengembalikan `{ data, total, error }`.
+* **Diagram Alir Algoritma (`docs/flowchart/`):**
+  * `linear-search.mmd`, `binary-search.mmd`, dan `bubble-sort.mmd`.
+* **Latihan Terminal Node.js (`latihan/`):**
+  * `latihan/async.mjs`: Event Loop (Sync $\rightarrow$ Microtask Promise $\rightarrow$ Macrotask Timer), `cekStok` manual, async/await, try/catch/finally, dan `Promise.all`.
+  * `latihan/fetch.mjs`: Pengujian fetch ke DummyJSON, ekstraksi `res.json()`, `console.table`, dan satpam `if (!res.ok)`.
+  * `latihan/tanggal.mjs`: Integrasi library eksternal npm `dayjs`, locale Indonesia (`id`), dan kalkulasi tanggal relatif.
+  * `latihan/uji-algoritma.mjs`: Pengujian benchmark 5 algoritma, 100% presisi sesuai kunci modul:
+    * Bubble Sort `[29, 10, 14, 37, 13]`: `10` perbandingan.
+    * Selection Sort: `10` perbandingan.
+    * Insertion Sort: `8` perbandingan.
+    * Binary Search cari 85: `4` langkah (indeks 10).
+    * Linear Search cari 85: `11` langkah (indeks 10).
+  * `latihan/bubble-sort/`: Eksperimen mandiri perulangan bubble sort descending dan display proses log.
+* **Halaman Web Next.js (`app/produk-api/`):**
+  * `page.js`: Server Component async membaca `await searchParams`, form pencarian `?q=`, katalog responsif kurs IDR 16.000, stok merah, format tanggal `dayjs`, serta 3 penanganan keadaan UI (Memuat, Kosong, Gagal dengan `role="alert"`).
+  * `loading.js`: Komponen skeleton berdenyut (*pulse skeleton*) 6 kartu abu-abu dengan `aria-busy="true"`.
+
+---
+
+## 7. Aset Statis & Dokumentasi
 * **Folder `public/`**:
   * `foto.jpg`: Foto profil kandidat (digunakan pada `/cv`).
   * `deepseek-icon.svg`: Ikon paus DeepSeek vektor resolusi tajam (`#4D6BFE`).
@@ -95,7 +142,7 @@ Dokumen memori ini mencatat profil pengembang, arsitektur proyek, riwayat penger
 
 ---
 
-## 6. Konfigurasi Git & Riwayat Milestone
+## 8. Konfigurasi Git & Riwayat Milestone
 * **Branch Utama:** `main`.
 * **Remote Repository:** `https://github.com/Bhayu-Satriaa/raincamp`
 * **File `.gitignore`:** Mengabaikan `html-practice/` dan folder latihan internal `belajar-js/`.

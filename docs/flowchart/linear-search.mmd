@@ -1,0 +1,7 @@
+flowchart TD
+  A([Mulai]) --> B[i ← 0]
+  B --> C{i < panjang arr?}
+  C -- Tidak --> X[/Kembalikan -1/] --> Z([Selesai])
+  C -- Ya --> D{arr i = target?}
+  D -- Ya --> Y[/Kembalikan i/] --> Z
+  D -- Tidak --> E[i ← i + 1] --> C
