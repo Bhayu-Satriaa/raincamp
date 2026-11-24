@@ -131,7 +131,7 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 
 ---
 
-## 7. Implementasi Pertemuan 4: Komponen, Props, dan Proyek Inventaris Toko
+## 7. Implementasi Pertemuan 4: Komponen, Props, dan Proyek Inventaris Toko (SELESAI)
 * **Panduan Sumber:** `modul/P04/1-materi.pdf`, `modul/P04/2-praktik.pdf`, & `modul/P04/3-slide.pdf`.
 * **Proyek Berkelanjutan (`inventaris-toko/`):**
   * Dibangun sebagai aplikasi Next.js (App Router, Tailwind CSS, ESLint, Lucide React) yang dikerjakan secara berkelanjutan dari P4 hingga P17.
@@ -146,12 +146,22 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
   * **Sesi A2 (Komponen Barang & Rendering):**
     * `components/LabelStok.js`: Badge status adaptif 3 warna (`habis`, `menipis`, `tersedia`) dengan lookup table `WARNA[status]` dan nested ternary.
     * `components/KartuBarang.js`: Kartu produk berikon `Package`, format Rupiah (`formatRupiah`), efek pudar bersyarat (`opacity-60` saat stok 0), dan pemanggilan komponen anak `<LabelStok stok={stok} />`.
-    * `app/page.js`: Berhasil merender grid 12 kartu barang dengan perulangan `.map()` dan prop `key={b.id}`.
     * Pemahaman tuntas mengenai **Aliran Data Satu Arah (*One-Way Data Flow*)** dari array sumber $\rightarrow$ map $\rightarrow$ KartuBarang $\rightarrow$ LabelStok.
-* **Langkah Berikutnya:**
-  * Sesi A3: `Navbar.js` & `Footer.js` (komponen navigasi & footer).
-  * Sesi A4: `TabelData.js` (komponen tabel serbaguna berbasis mapping deklaratif kolom).
-  * Sesi B (Sprint): Merakit halaman penuh katalog inventaris Toko Maju Jaya (4 kartu statistik, pengelompokan per kategori, dan tabel barang).
+  * **Sesi A3 (Navbar & Footer Semantik):**
+    * `components/Navbar.js`: Navigasi atas dengan `Link` ke beranda, ikon `Store`, dan menu anchor internal (`#katalog`, `#tabel`, `#tentang`).
+    * `components/Footer.js`: Catatan kaki semantik dengan hak cipta dinamis dan default parameter `tahun = 2026`.
+  * **Sesi A4 (Komponen Serbaguna `TabelData.js`):**
+    * `components/TabelData.js`: Tabel generik deklaratif berbasis pemetaan kolom (`kolom`), penanganan keadaan kosong (*empty state*), serta render prop `k.tampil ? k.tampil(baris) : baris[k.kunci]`.
+  * **Sesi B (Sprint UI Statis Toko Maju Jaya & Modern SaaS Redesign):**
+    * `components/KartuStatistik.js`: 4 kartu metrik data (Bento Grid) dengan peringatan bersyarat border amber.
+    * `components/Bagian.js`: Wrapper section semantik dengan prop `children`.
+    * **Desain UI Modern (Dribbble Inspired)**: Transformasi tampilan dari template kaku ke **Clean Modern SaaS (Linear/Raycast style)**: latar kanvas halus `bg-zinc-50/60`, navbar *sticky glassmorphism* (`backdrop-blur-md`), kartu produk beraksen kontainer ikon indigo dan efek *hover lift* (`hover:-translate-y-0.5 hover:shadow-md`), serta *pill badge* pastel lembut.
+    * `app/page.js`: Perakitan katalog penuh Toko Maju Jaya (4 kartu metrik, pengelompokan per kategori bersarang, dan tabel data).
+  * **Sesi C (Validasi SKKNI & Evaluasi):**
+    * **Target Angka Kunci:** 12 jenis barang, nilai persediaan Rp 2.425.000, 3 stok menipis, 2 stok habis.
+    * **Rubrik SKKNI:** Nilai sempurna 100/100 (7 komponen mandiri di `components/`, props/children, rendering daftar stabil, rendering bersyarat, logika murni di `lib/`, pre-existing components & aksesibilitas `aria-hidden`, dan responsif).
+    * **Verifikasi Build:** 0 warning / 0 error pada `npm run lint` dan lolos `next build` Turbopack 100% statis.
+    * **Pohon Komponen:** Terdokumentasi lengkap dalam diagram alir Mermaid.
 
 ---
 
@@ -176,6 +186,9 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 * **Riwayat Commit Utama:**
   * `c76d082`: Milestone Pertemuan 1 (Form, Katalog TokoKita, CV Semantik, Landing KasirKu, dan Laporan PDF).
   * `87e0dfc`: `feat(day2): implementasi modul pertemuan 2 - javascript modern es6+, lib nilai & hitung, dashboard mahasiswa, evaluasi c3-c4, serta laporan pdf`.
+  * `55ba10d`: `feat(day3): implementasi modul pertemuan 3 - pustaka algoritma, async fetch dummyjson, halaman web produk-api, dayjs, dan 3 flowchart`.
+  * `0d2a094`: `feat(p4): tambahkan Tombol, data-barang, lib barang, LabelStok, dan KartuBarang hasil hands-on coding`.
+  * *(Current)*: `feat(p4): selesaikan modul p04 - navbar, footer, tabeldata generik, sprint ui inventaris toko maju jaya, dan desain modern saas`.
 * **Workflow Push:** Setiap ada perubahan fungsional atau dokumentasi, lakukan build check (`npm run build`), commit dengan format semantik (`feat:`, `docs:`), dan push ke `origin main`.
 * **Pembuatan PDF:** Menggunakan Microsoft Edge headless via PowerShell:
   `Start-Process msedge -ArgumentList '--headless=new', '--print-to-pdf="<output.pdf>"', '--no-pdf-header-footer', '<file.html>' -Wait`
