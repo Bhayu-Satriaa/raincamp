@@ -72,6 +72,9 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 * **`modul/P03/` — Pertemuan 3: Algoritma, Async, dan Debugging**
   * **Unit SKKNI:** `J.620100.022.02` (Mengimplementasikan Algoritma Pemrograman), `J.620100.004.02` (Menggunakan Library atau Komponen Pre-Existing), dan `J.620100.025.02` (Melakukan Debugging).
   * **File:** `1-materi.pdf` (Konsep Algoritma, Searching & Sorting + Big-O, Async/Await fetch, Dayjs, Debugging), `2-praktik.pdf` (Panduan praktik B1 pustaka algoritma, B2 halaman produk-api, Sesi 4 debugging bug.mjs), dan `3-slide.pdf` (Slide presentasi).
+* **`modul/P04/` — Pertemuan 4: Komponen, Props, dan Rendering (Proyek Inventaris Toko)**
+  * **Unit SKKNI:** `J.620100.010.01` (Menerapkan Perintah Eksekusi Bahasa Pemrograman Berbasis Teks, Grafik, dan Multimedia) & `J.620100.019.02` (Menggunakan Library atau Komponen Pre-Existing).
+  * **File:** `1-materi.pdf` (Cara kerja React, komponen, props, children, dekomposisi hierarki), `2-praktik.pdf` (Panduan proyek baru inventaris-toko, Tombol, KartuBarang, LabelStok, Navbar, Footer, TabelData, Bagian, KartuStatistik, Kuis C4), serta `3-slide.pdf` (Slide presentasi 26 slide).
 
 ---
 
@@ -128,7 +131,35 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 
 ---
 
-## 7. Aset Statis & Dokumentasi
+## 7. Implementasi Pertemuan 4: Komponen, Props, dan Proyek Inventaris Toko
+* **Panduan Sumber:** `modul/P04/1-materi.pdf`, `modul/P04/2-praktik.pdf`, & `modul/P04/3-slide.pdf`.
+* **Proyek Berkelanjutan (`inventaris-toko/`):**
+  * Dibangun sebagai aplikasi Next.js (App Router, Tailwind CSS, ESLint, Lucide React) yang akan dikembangkan bertahap sampai Pertemuan 17 (P4–P8 React, P9–P11 Next.js, P12–P17 MySQL).
+* **Modul Library (`inventaris-toko/lib/`):**
+  * `lib/data-barang.js`: Master data 12 barang dummy, 4 kategori (`Alat Tulis`, `Makanan`, `Minuman`, `Kebersihan`), dan `BATAS_MENIPIS = 10`.
+  * `lib/barang.js`: Fungsi murni komputasi persediaan (`statusStok`, `kelompokkanPerKategori`, `ringkasanStok`, dan `ringkasanPerKategori`).
+  * `lib/format.js`: Pustaka helper format mata uang IDR (`Intl.NumberFormat`).
+  * `lib/uji-inventaris.mjs`: Script automated test penjamin keakuratan metrik persediaan:
+    * 12 jenis barang, 547 total unit, Nilai persediaan: `Rp 2.425.000` (100% cocok).
+    * 3 stok menipis: Biskuit Kelapa (8), Teh Botol (5), Pasta Gigi (3).
+    * 2 stok habis: Pensil 2B (0), Roti Cokelat (0).
+* **Komponen Antarmuka (`inventaris-toko/components/`):**
+  * `Tombol.js`: Komponen tombol polimorfik dengan 4 varian (`utama`, `garis`, `bahaya`, `netral`), dukungan ikon `lucide-react`, dan rest props (`...sisa`).
+  * `LabelStok.js`: Badge status stok adaptif 3 warna (*habis*, *menipis*, *tersedia*).
+  * `KartuBarang.js`: Kartu katalog responsif berikon `Package` dengan efek pudar (`opacity-60`) jika stok habis.
+  * `Navbar.js`: Navigasi sticky dark slate dengan branding `Store` dan jump links (`#katalog`, `#ringkasan`, `#tabel`, `#tentang`).
+  * `Footer.js`: Footer semantik dengan tahun dinamis dan hak cipta.
+  * `TabelData.js`: Komponen tabel serbaguna berbasis mapping dinamis kolom (`kunci`, `rataKanan`, `tampil`).
+  * `KartuStatistik.js`: Kartu ringkasan metrik responsif berbingkai aksen kuning jika stok menipis/habis.
+  * `Bagian.js`: Section wrapper semantik berbasis `children`.
+  * `RingkasanKategori.js`: Komponen analitik lanjutan (*Tantangan Siap*) penampil jumlah jenis, unit, dan nilai persediaan per kategori.
+* **Pohon Komponen & Dokumentasi:**
+  * Diagram alir hierarki komponen Mermaid lengkap terdokumentasi di `docs/pohon-komponen-p4.md` dan `inventaris-toko/docs/pohon-komponen.md`.
+  * Rangkuman 10 kuis evaluasi pemahaman C4 terdokumentasi di `docs/kuis-p4.md`.
+
+---
+
+## 8. Aset Statis & Dokumentasi
 * **Folder `public/`**:
   * `foto.jpg`: Foto profil kandidat (digunakan pada `/cv`).
   * `deepseek-icon.svg`: Ikon paus DeepSeek vektor resolusi tajam (`#4D6BFE`).
@@ -142,7 +173,7 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 
 ---
 
-## 8. Konfigurasi Git & Riwayat Milestone
+## 9. Konfigurasi Git & Riwayat Milestone
 * **Branch Utama:** `main`.
 * **Remote Repository:** `https://github.com/Bhayu-Satriaa/raincamp`
 * **File `.gitignore`:** Mengabaikan `html-practice/` dan folder latihan internal `belajar-js/`.

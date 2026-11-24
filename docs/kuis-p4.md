@@ -1,0 +1,14 @@
+# Kuis Evaluasi Pertemuan 4: Komponen dan Props (C4)
+
+| No | Pertanyaan | Jawaban & Analisis |
+| :--- | :--- | :--- |
+| 1 | **Komponen React pada dasarnya adalah …**<br>A. kelas CSS<br>B. fungsi yang mengembalikan JSX<br>C. file HTML<br>D. objek JSON | **B. fungsi yang mengembalikan JSX**<br>*Komponen React modern adalah fungsi JavaScript murni yang mengembalikan representasi UI berupa JSX.* |
+| 2 | **Nama komponen yang benar adalah …**<br>A. kartuBarang<br>B. kartu-barang<br>C. KartuBarang<br>D. KARTU_BARANG | **C. KartuBarang**<br>*React membedakan elemen HTML bawaan (huruf kecil) dan komponen kustom dengan konvensi PascalCase.* |
+| 3 | **Data dari induk ke anak dikirim lewat …**<br>A. state<br>B. props<br>C. key<br>D. children saja | **B. props**<br>*Props adalah kanal transmisi data satu arah (one-way data flow) dari parent ke child.* |
+| 4 | **Isi di antara `<Bagian>` dan `</Bagian>` diterima komponen sebagai …**<br>A. props.isi<br>B. props.children<br>C. props.html<br>D. props.content | **B. props.children**<br>*Setiap konten/elemen yang diapit oleh tag pembuka dan penutup komponen otomatis diteruskan ke `props.children`.* |
+| 5 | **Pernyataan yang benar tentang props adalah …**<br>A. boleh diubah anak<br>B. read-only bagi anak<br>C. hanya boleh string<br>D. wajib ada | **B. read-only bagi anak**<br>*Props bersifat immutable. Komponen anak tidak boleh memodifikasi props yang diterimanya untuk menjaga kemurnian fungsi.* |
+| 6 | **Key yang paling tepat untuk daftar barang adalah …**<br>A. Math.random()<br>B. indeks array<br>C. b.id<br>D. b.nama + Date.now() | **C. b.id**<br>*Key harus stabil, unik, dan persisten antar render. Penggunaan ID unik entitas mencegah bug pergeseran state DOM saat sorting/filtering.* |
+| 7 | **`{stok && <p>Tersedia</p>}` saat stok = 0 menampilkan …**<br>A. tidak ada<br>B. 0<br>C. Tersedia<br>D. error | **B. 0**<br>*Karena 0 bernilai falsy pada short-circuit evaluation JavaScript, ekspresi menghasilkan angka 0 dan React tetap merendernya ke layar. Solusinya gunakan `{stok > 0 && ...}`.* |
+| 8 | **Untuk menampilkan salah satu dari dua elemen di dalam JSX dipakai …**<br>A. if<br>B. for<br>C. ternary<br>D. switch | **C. ternary**<br>*Di dalam kurung kurawal `{}` hanya diperbolehkan ekspresi nilai. Pernyataan `if` tidak menghasilkan nilai, sehingga ternary operator (`kondisi ? A : B`) adalah standar JSX.* |
+| 9 | **Ikon lucide-react yang hanya hiasan sebaiknya diberi …**<br>A. alt<br>B. aria-hidden="true"<br>C. role="img"<br>D. tabIndex={0} | **B. aria-hidden="true"**<br>*Atribut ini menyembunyikan elemen visual murni dari screen reader demi aksesibilitas web (A11y).* |
+| 10 | **Navigasi ke halaman lain di aplikasi Next.js sebaiknya memakai …**<br>A. `<a>`<br>B. window.location<br>C. Link dari next/link<br>D. `<button>` | **C. Link dari next/link**<br>*Komponen `<Link>` melakukan client-side navigation dan prefetching otomatis tanpa melakukan reload halaman penuh (full-page reload).* |
