@@ -134,9 +134,24 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 ## 7. Implementasi Pertemuan 4: Komponen, Props, dan Proyek Inventaris Toko
 * **Panduan Sumber:** `modul/P04/1-materi.pdf`, `modul/P04/2-praktik.pdf`, & `modul/P04/3-slide.pdf`.
 * **Proyek Berkelanjutan (`inventaris-toko/`):**
-  * Dibangun sebagai aplikasi Next.js (App Router, Tailwind CSS, ESLint, Lucide React) yang disiapkan sebagai starter bersih untuk latihan mandiri (*hands-on coding*).
-  * Telah terpasang dependensi `lucide-react`, konfigurasi `app/layout.js`, `app/globals.css`, serta `lib/format.js` (`formatRupiah`).
-  * Struktur folder `components/` dan `lib/` siap digunakan oleh peserta untuk mengetik komponen secara terpandu mulai dari Sesi A1 (Tombol).
+  * Dibangun sebagai aplikasi Next.js (App Router, Tailwind CSS, ESLint, Lucide React) yang dikerjakan secara berkelanjutan dari P4 hingga P17.
+* **Progres Praktik Terpandu Peserta (Hands-on Coding):**
+  * **Sesi A1 (Komponen Tombol - `components/Tombol.js`):**
+    * Dibuat mandiri dengan 4 varian warna (`utama`, `garis`, `bahaya`, dan modifikasi `netral`).
+    * Mempelajari dekonstruksi props (`{ children, varian, ikon: Ikon, ...sisa }`), aturan PascalCase pada pemanggilan komponen JSX, dan rest/spread parameter.
+  * **Sesi A2 (Data & Logika Murni):**
+    * `lib/data-barang.js`: Master data 12 barang dummy, 4 kategori (`Alat Tulis`, `Makanan`, `Minuman`, `Kebersihan`), dan `BATAS_MENIPIS = 10`.
+    * `lib/barang.js`: Fungsi murni komputasi persediaan (`statusStok`, `kelompokkanPerKategori`, `ringkasanStok`).
+    * Pemahaman mendalam konsep fungsi array: `.length` (kuantitas baris), `.reduce()` (akumulasi total unit dan valuasi modal), `.filter().length` (pencarian stok habis & menipis).
+  * **Sesi A2 (Komponen Barang & Rendering):**
+    * `components/LabelStok.js`: Badge status adaptif 3 warna (`habis`, `menipis`, `tersedia`) dengan lookup table `WARNA[status]` dan nested ternary.
+    * `components/KartuBarang.js`: Kartu produk berikon `Package`, format Rupiah (`formatRupiah`), efek pudar bersyarat (`opacity-60` saat stok 0), dan pemanggilan komponen anak `<LabelStok stok={stok} />`.
+    * `app/page.js`: Berhasil merender grid 12 kartu barang dengan perulangan `.map()` dan prop `key={b.id}`.
+    * Pemahaman tuntas mengenai **Aliran Data Satu Arah (*One-Way Data Flow*)** dari array sumber $\rightarrow$ map $\rightarrow$ KartuBarang $\rightarrow$ LabelStok.
+* **Langkah Berikutnya:**
+  * Sesi A3: `Navbar.js` & `Footer.js` (komponen navigasi & footer).
+  * Sesi A4: `TabelData.js` (komponen tabel serbaguna berbasis mapping deklaratif kolom).
+  * Sesi B (Sprint): Merakit halaman penuh katalog inventaris Toko Maju Jaya (4 kartu statistik, pengelompokan per kategori, dan tabel barang).
 
 ---
 
