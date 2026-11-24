@@ -1,9 +1,0 @@
-export default function Bagian({ id, judul, keterangan, children }) {
-  return (
-    <section id={id} className="mt-10">
-      <h2 className="text-xl font-bold text-slate-900">{judul}</h2>
-      {keterangan && <p className="text-sm text-slate-600">{keterangan}</p>}
-      <div className="mt-4">{children}</div>
-    </section>
-  );
-}
