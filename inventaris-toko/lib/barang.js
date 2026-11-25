@@ -22,3 +22,27 @@ export function ringkasanStok(daftar) {
 
     };
 }
+
+export const rapikanBarang = (data) => ({
+    kode: data.kode.trim(),
+    nama: data.nama.trim(),
+    kategori: data.kategori,
+    harga: Number(data.harga),
+    stok: Number(data.stok),
+    satuan: data.satuan.trim(),
+});
+
+export function tambahBarang(daftar, data) {
+    const idBaru =
+        daftar.length === 0 ? 1 : Math.max(...daftar.map((b) => b.id)) + 1;
+    return [...daftar, { id: idBaru, ...rapikanBarang(data) }];
+}
+
+export const ubahBarang = (daftar, id, data) =>
+    daftar.map((b) => (b.id === id ? {
+        ...b,
+        ...rapikanBarang(data)
+    } : b));
+
+export const hapusBarang = (daftar, id) =>
+    daftar.filter((b) => b.id !== id);

@@ -75,6 +75,9 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 * **`modul/P04/` — Pertemuan 4: Komponen, Props, dan Rendering (Proyek Inventaris Toko)**
   * **Unit SKKNI:** `J.620100.010.01` (Menerapkan Perintah Eksekusi Bahasa Pemrograman Berbasis Teks, Grafik, dan Multimedia) & `J.620100.019.02` (Menggunakan Library atau Komponen Pre-Existing).
   * **File:** `1-materi.pdf` (Cara kerja React, komponen, props, children, dekomposisi hierarki), `2-praktik.pdf` (Panduan proyek baru inventaris-toko, Tombol, KartuBarang, LabelStok, Navbar, Footer, TabelData, Bagian, KartuStatistik, Kuis C4), serta `3-slide.pdf` (Slide presentasi 26 slide).
+* **`modul/P05/` — Pertemuan 5: State, Event, Controlled Form, dan Lifting State Up**
+  * **Unit SKKNI:** `J.620100.017.02` (Mengimplementasikan Pemrograman Terstruktur) & `J.620100.014.01` (Menerapkan Metode dan Praktik Penggunaan Kembali / Reusable Subrutin).
+  * **File:** `1-materi.pdf` (`useState`, `"use client"`, event handler, snapshot vs updater, immutability, controlled form, validasi regex, lifting state up, React DevTools), `2-praktik.pdf` (Praktik terpandu A1–A5, Sprint B manajemen barang di memori, 6 skenario uji C3, kuis C4), serta `3-slide.pdf` (Slide presentasi).
 
 ---
 
@@ -165,7 +168,24 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 
 ---
 
-## 8. Aset Statis & Dokumentasi
+## 8. Implementasi Pertemuan 5: State, Controlled Form, & Manajemen Barang (SELESAI)
+* **Panduan Sumber:** `modul/P05/1-materi.pdf`, `modul/P05/2-praktik.pdf`, & `modul/P05/3-slide.pdf`.
+* **Sesi A — Praktik Terpandu (Hands-on Coding di `inventaris-toko/`):**
+  * **A1 & A2 (`components/Penghitung.js` & `app/latihan/page.js`):** Eksperimen `useState`, direktif `"use client"`, state independen antar instance, serta perbedaan *snapshot* (`setJumlah(jumlah + 1)`) vs *updater function* (`setJumlah((j) => j + 1)`). *(Dipertahankan sementara sebagai referensi latihan).*
+  * **A3 & A4 (`lib/validasi.js`, `latihan/uji-validasi.mjs`, `components/FormBarang.js`):**
+    * `lib/validasi.js`: Fungsi murni `validasiBarang(data, daftar, idSedangDiedit)` dan `adaGalat(galat)` untuk 6 kolom (`kode` format `/^[A-Z]{3}-\d{3}$/` & cek ganda, `nama` min 3 karakter, `kategori`, `harga` bulat > 0, `stok` bulat >= 0, `satuan`).
+    * `latihan/uji-validasi.mjs`: Uji terminal 4 skenario validasi, 100% sesuai kunci modul.
+    * `components/FormBarang.js`: *Controlled form* dengan 1 objek state `isian`, 1 handler `ubah(e)` (`[name]` + auto-uppercase `kode`), `noValidate`, komponen `Kolom`, pesan galat per kolom, serta atribut aksesibilitas `aria-invalid` dan `aria-describedby`.
+  * **A5 (`lib/barang.js`):** Penambahan fungsi murni *immutable*: `rapikanBarang`, `tambahBarang`, `ubahBarang`, dan `hapusBarang`.
+* **Sesi B — Sprint Manajemen Barang di Memori:**
+  * `components/DialogKonfirmasi.js`: Modal konfirmasi hapus (`role="alertdialog"`, `aria-modal="true"`, tombol `Batal` `autoFocus` dan `Ya, hapus`).
+  * `components/ManajemenBarang.js`: Induk pengelola state (`daftar`, `diedit`, `akanDihapus`, `pesan`), menghitung 4 `KartuStatistik` sebagai nilai turunan (`ringkasanStok(daftar)`), pola edit dengan `key={diedit?.id ?? "baru"}`, notifikasi status hijau (`role="status"`), dan `TabelData` lengkap dengan `formatRupiah`, `<LabelStok />`, serta kolom Aksi (Edit & Hapus dengan `aria-label`).
+  * `app/page.js`: Halaman beranda Server Component merender `<ManajemenBarang barangAwal={daftarBarang} />`.
+* **Verifikasi:** `npm run lint` (0 error/warning) dan `npm run build` Turbopack lolos (`/` dan `/latihan` ter-build statis).
+
+---
+
+## 9. Aset Statis & Dokumentasi
 * **Folder `public/`**:
   * `foto.jpg`: Foto profil kandidat (digunakan pada `/cv`).
   * `deepseek-icon.svg`: Ikon paus DeepSeek vektor resolusi tajam (`#4D6BFE`).
@@ -179,7 +199,7 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 
 ---
 
-## 9. Konfigurasi Git & Riwayat Milestone
+## 10. Konfigurasi Git & Riwayat Milestone
 * **Branch Utama:** `main`.
 * **Remote Repository:** `https://github.com/Bhayu-Satriaa/raincamp`
 * **File `.gitignore`:** Mengabaikan `html-practice/` dan folder latihan internal `belajar-js/`.
@@ -188,7 +208,8 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
   * `87e0dfc`: `feat(day2): implementasi modul pertemuan 2 - javascript modern es6+, lib nilai & hitung, dashboard mahasiswa, evaluasi c3-c4, serta laporan pdf`.
   * `55ba10d`: `feat(day3): implementasi modul pertemuan 3 - pustaka algoritma, async fetch dummyjson, halaman web produk-api, dayjs, dan 3 flowchart`.
   * `0d2a094`: `feat(p4): tambahkan Tombol, data-barang, lib barang, LabelStok, dan KartuBarang hasil hands-on coding`.
-  * *(Current)*: `feat(p4): selesaikan modul p04 - navbar, footer, tabeldata generik, sprint ui inventaris toko maju jaya, dan desain modern saas`.
+  * `feat(p4)`: `selesaikan modul p04 - navbar, footer, tabeldata generik, sprint ui inventaris toko maju jaya, dan desain modern saas`.
+  * *(Current)*: `feat(p5): selesaikan modul p05 - state, controlled form, validasi, dialog konfirmasi, dan manajemen barang`.
 * **Workflow Push:** Setiap ada perubahan fungsional atau dokumentasi, lakukan build check (`npm run build`), commit dengan format semantik (`feat:`, `docs:`), dan push ke `origin main`.
 * **Pembuatan PDF:** Menggunakan Microsoft Edge headless via PowerShell:
   `Start-Process msedge -ArgumentList '--headless=new', '--print-to-pdf="<output.pdf>"', '--no-pdf-header-footer', '<file.html>' -Wait`
