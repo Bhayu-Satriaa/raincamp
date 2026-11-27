@@ -2,6 +2,7 @@
 
 import Penghitung from "@/components/Penghitung";
 import FormBarang from "@/components/FormBarang";
+import FormPembayaran from "@/components/kasir/FormPembayaran";
 
 export default function Latihan() {
     return (
@@ -12,6 +13,11 @@ export default function Latihan() {
                 <Penghitung awal={10} langkah={5} />
             </div>
             <FormBarang onSimpan={(x) => alert(JSON.stringify(x))} />
+            <FormPembayaran
+                total={58500}
+                nonaktif={false}
+                onBayar={(d) => console.log("bayar", d)}
+            />
         </main>
     );
 }

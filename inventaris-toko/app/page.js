@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ManajemenBarang from "@/components/ManajemenBarang";
-import { daftarBarang } from "@/lib/data-barang";
+import HalamanBarang from "@/components/HalamanBarang";
 
 const NAMA_TOKO = "Toko Maju Jaya";
 
@@ -10,11 +9,10 @@ export default function Beranda() {
     <div className="min-h-screen bg-zinc-50/60 text-zinc-900">
       <Navbar namaToko={NAMA_TOKO} />
       <main className="mx-auto max-w-6xl px-6 py-8">
-        <h1 className="mb-6 text-2xl font-bold tracking-tight
-            text-zinc-900">
+        <h1 className="mb-6 text-2xl font-bold tracking-tight text-zinc-900">
           Manajemen Barang
         </h1>
-        <ManajemenBarang barangAwal={daftarBarang} />
+        <HalamanBarang />
       </main>
       <Footer namaToko={NAMA_TOKO} />
     </div>

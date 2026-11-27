@@ -1,0 +1,42 @@
+TUGAS 1 - Coba Buat Komnponen
+
+Buatkan komponen dengan nama "Salam" dengan struktur sbb:
+
+"Halo selamat datang {nama}, umur anda {umur} tahun, Anda sudah cukup umur"
+
+1. nama dan umur adalah props
+2. Jika usia lebih besar 17 tahun, muncul pesan Anda sudah cukup umur kalau usia kurang dari 17 tahun anda belum cukup
+
+
+
+
+
+
+
+
+TUGAS 2 — Kartu Nilai Siswa
+
+Buat halaman sederhana yang menampilkan informasi seorang siswa dengan beberapa component.
+
+Gunakan minimal 3 component berikut:
+
+1. `Header` untuk menampilkan judul "Data Nilai Siswa"
+2. `ProfilSiswa` untuk menampilkan nama dan kelas siswa
+3. `HasilUjian` untuk menampilkan nilai dan status kelulusan
+
+Ketentuan:
+
+1. Buat component `App` yang menyusun `Header`, `ProfilSiswa`, dan `HasilUjian`.
+2. `ProfilSiswa` menerima props `nama` dan `kelas`.
+3. `HasilUjian` menerima props `nilai`.
+4. Jika nilai lebih besar atau sama dengan 75, tampilkan "Status: Lulus".
+5. Jika nilai kurang dari 75, tampilkan "Status: Belum Lulus".
+6. Tampilkan juga kalimat: "{nama} dari kelas {kelas} memperoleh nilai {nilai}."
+7. Gunakan data berikut saat memanggil component:
+   - nama: "Siti"
+   - kelas: "XI RPL 1"
+   - nilai: 82
+8. Setiap component harus mengembalikan JSX dan dipanggil dari component lain melalui JSX.
+
+Bonus:
+Buat component `Pesan` yang menerima props `lulus`. Component tersebut menampilkan pesan berbeda sesuai status kelulusan, lalu gunakan component itu di dalam `HasilUjian`.

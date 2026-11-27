@@ -11,6 +11,7 @@ Dokumen memori ini mencatat profil pengembang, arsitektur proyek, riwayat penger
 * **Email:** bhayuusatriaa@gmail.com
 * **GitHub:** [https://github.com/Bhayu-Satriaa/raincamp](https://github.com/Bhayu-Satriaa/raincamp)
 * **Latar Belakang Keahlian:** Berpengalaman dengan sintaks PHP dan framework Laravel. Sedang mendalami ekosistem JavaScript modern (React 19, Next.js 16 App Router, dan Tailwind CSS).
+* **Preferensi Gaya Pengerjaan:** **Guided Hands-on Coding** — Asisten memandu langkah demi langkah (memberi tahu file apa yang harus dibuat, bagian mana yang perlu diubah/diisi, serta konsepnya) dan menunggu peserta mempraktikkan serta mengonfirmasi hasilnya sebelum lanjut ke praktik berikutnya.
 
 ---
 
@@ -78,6 +79,12 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 * **`modul/P05/` — Pertemuan 5: State, Event, Controlled Form, dan Lifting State Up**
   * **Unit SKKNI:** `J.620100.017.02` (Mengimplementasikan Pemrograman Terstruktur) & `J.620100.014.01` (Menerapkan Metode dan Praktik Penggunaan Kembali / Reusable Subrutin).
   * **File:** `1-materi.pdf` (`useState`, `"use client"`, event handler, snapshot vs updater, immutability, controlled form, validasi regex, lifting state up, React DevTools), `2-praktik.pdf` (Praktik terpandu A1–A5, Sprint B manajemen barang di memori, 6 skenario uji C3, kuis C4), serta `3-slide.pdf` (Slide presentasi).
+* **`modul/P06/` — Pertemuan 6: Effects, Custom Hooks, & Daftar Barang Interaktif**
+  * **Unit SKKNI:** `J.620100.014.01` (Menerapkan Metode dan Praktik Penggunaan Kembali / Reusable Subrutin) & `J.620100.019.02` (Menggunakan Library atau Komponen Pre-Existing).
+  * **File:** `1-materi.pdf` (`useEffect`, dependency array, cleanup, fetch di klien, `useFetch`, `useLocalStorage`, `useDebounce`, fungsi murni `terapkanKueri`, nilai turunan), `2-praktik-gambar.pdf` (Persiapan JSON, Praktik A1–A4, Sprint B daftar barang interaktif, evaluasi C1–C6), serta `3-slide.pdf` (Slide presentasi 21 slide).
+* **`modul/P07/` — Pertemuan 7: State Lanjut (`useReducer`, `Context`), React Hook Form, Zod, & Modul Kasir**
+  * **Unit SKKNI:** `J.620100.017.02` (Mengimplementasikan Pemrograman Terstruktur) & `J.620100.019.02` (Menggunakan Library atau Komponen Pre-Existing).
+  * **File:** `1-materi.pdf` (`useReducer`, Context + `useMemo` + `useCallback`, React Hook Form + Zod, `useWatch`), `2-praktik-gambar-v2.pdf` (Persiapan package, Praktik A1–A4, Sprint B Modul Kasir `/kasir`, 12 skenario uji, evaluasi C1–C5), serta `3-slide.pdf` (Slide presentasi).
 
 ---
 
@@ -185,7 +192,50 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 
 ---
 
-## 9. Aset Statis & Dokumentasi
+## 9. Implementasi Pertemuan 6: Effects, Custom Hooks, & Daftar Barang Interaktif (SELESAI)
+* **Panduan Sumber:** `modul/P06/1-materi.pdf`, `modul/P06/2-praktik-gambar.pdf`, & `modul/P06/3-slide.pdf`.
+* **Persiapan (SELESAI):**
+  * `public/data/barang.json`: Dibuat dari 12 item `lib/data-barang.js` dan diverifikasi tampil di `/data/barang.json`.
+* **Sesi A — Praktik Terpandu (SELESAI):**
+  * **A1 (`components/Jam.js`):** Latihan `useEffect` + `setInterval` & *cleanup* `clearInterval`. Penyesuaian Next.js 16 `cacheComponents: true`: state `waktu` diinisialisasi `null` dan `new Date()` dibaca di dalam `useEffect` agar aman dari *blocking prerender*.
+  * **A2 (`hooks/useFetch.js`, `components/HalamanBarang.js`, `app/page.js`):** Fetch JSON di klien dengan `AbortController` + `muatUlang()`. Keadaan *memuat* (skeleton *Slow 4G*), *gagal* (`Server menjawab 404` + tombol *Coba lagi*), dan *berhasil* sudah diuji.
+  * **A3 (`hooks/useLocalStorage.js` & `components/ManajemenBarang.js`):** State `daftar` dipersist ke `localStorage` (`"inventaris:barang"`) dengan *lazy initializer*.
+  * **A4 (`hooks/useDebounce.js`):** Hook tunda input (`setTimeout` + cleanup `clearTimeout`).
+* **Sesi B — Sprint Daftar Barang Interaktif (SELESAI):**
+  * `lib/kueri.js`: `PILIHAN_URUT` dan `terapkanKueri` (pencarian, filter kategori, sort immutable, dan paginasi), terverifikasi via `latihan/uji-kueri.mjs`.
+  * `components/KontrolDaftar.js`: Input pencarian (`sr-only`), filter kategori, dan dropdown pengurutan.
+  * `components/Paginasi.js`: Navigasi halaman (`Sebelumnya`, nomor halaman `aria-current="page"`, `Berikutnya`).
+  * `components/ManajemenBarang.js`: Integrasi `useDebounce`, `terapkanKueri`, `useEffect` (`document.title`), `KontrolDaftar`, `Paginasi`, tombol *Kembalikan data awal*, dan penyeragaman kunci `useLocalStorage("inventaris:barang", barangAwal)`.
+* **Verifikasi:** `npm run lint` (0 error/warning) dan `npm run build` Next.js 16.4.6 Turbopack lolos (`/` dan `/latihan` ter-build statis).
+
+---
+
+## 10. Implementasi Pertemuan 7: State Lanjut & Modul Kasir (SELESAI)
+* **Panduan Sumber:** `modul/P07/1-materi.pdf`, `modul/P07/2-praktik-gambar-v2.pdf`, & `modul/P07/3-slide.pdf`.
+* **Persiapan (SELESAI):**
+  * Terpasang di `inventaris-toko/package.json`: `react-hook-form` (`^7.92.0`), `zod` (`^4.6.7`), dan `@hookform/resolvers` (`^7.0.9`).
+  * Folder `context/` dan `components/kasir/` sudah dibuat.
+* **Sesi A — Praktik Terpandu (SELESAI):**
+  * **A1 (`lib/keranjang.js`):** `TINGKAT_DISKON` (5%, 10%, 15%), `KERANJANG_AWAL`, `keranjangReducer` (`tambah`, `ubahJumlah`, `hapus`, `kosongkan`, `default`), `persenDiskon`, `hitungRingkasan`, `kurangiStok`, dan `menujuDiskonBerikutnya`.
+  * **A2 (`context/KeranjangContext.js`):** `KeranjangProvider` (`useReducer`, `useMemo`, `useCallback`) dan hook `useKeranjang()` dengan pengaman error di luar Provider.
+  * **A3 (`lib/skema.js`):** Skema Zod `skemaBarang`, `METODE_BAYAR`, `buatSkemaPembayaran(total)` (dengan `.refine` uang tunai cukup), dan `galatPerKolom`.
+  * **A4 (`components/kasir/FormPembayaran.js`):** Form pembayaran berbasis React Hook Form + `zodResolver(skema)` dinamis (`useMemo`), `useWatch` untuk `metode` (Tunai/QRIS) dan `bayar` (hitung kembalian langsung), serta `reset(AWAL)` setelah submit. Diuji terisolasi di `/latihan`.
+  * **Uji Terminal (`latihan/uji-kasir.mjs`):** Lulus 100% seluruh skenario **A–L** (reducer + skema Zod).
+* **Sesi B — Sprint Modul Kasir (SELESAI):**
+  * `components/Navbar.js`: Diperbarui menjadi menu `Barang` (`/`) dan `Kasir` (`/kasir`) memakai `<Link>`.
+  * `app/kasir/page.js` & `components/kasir/HalamanKasir.js`: Halaman `/kasir` dengan `useFetch("/data/barang.json")` (state memuat, gagal + coba lagi, dan `KeranjangProvider`).
+  * `components/kasir/PilihBarang.js`: Pencarian nama/kode, tampilan harga & sisa stok real-time (`stok - diKeranjang`), dan tombol `+` nonaktif saat sisa `<= 0`.
+  * `components/kasir/Keranjang.js`: Kontrol `-`, input jumlah (`max={i.stok}`), `+`, dan hapus item dengan `aria-label`.
+  * `components/kasir/RingkasanBelanja.js`: Subtotal, diskon bertingkat, total, dan info selisih belanja menuju diskon berikutnya.
+  * `components/kasir/Struk.js`: Tampilan struk transaksi berhasil (`role="status"`) dan tombol `Transaksi baru`.
+  * `components/kasir/Kasir.js`: Orkestrator kasir terhubung ke `useLocalStorage("inventaris:barang", barangAwal)` agar transaksi mengurangi stok di halaman Barang.
+* **Tambahan Fitur Paginasi Dinamis (`KontrolDaftar.js` & `ManajemenBarang.js`):**
+  * Menambahkan `perHalaman: 5` pada `KUERI_AWAL` di `ManajemenBarang.js` dan dropdown pilihan jumlah item per halaman (`5, 10, 15, 20, 25`) pada `KontrolDaftar.js` (`lg:grid-cols-4`).
+* **Verifikasi:** 12 skenario uji manual di `/kasir` & paginasi dinamis di `/` lolos; `npm run lint` (0 error/warning) dan `npm run build` Next.js 16.4.6 Turbopack lolos (`/`, `/kasir`, `/latihan` ter-build statis).
+
+---
+
+## 11. Aset Statis & Dokumentasi
 * **Folder `public/`**:
   * `foto.jpg`: Foto profil kandidat (digunakan pada `/cv`).
   * `deepseek-icon.svg`: Ikon paus DeepSeek vektor resolusi tajam (`#4D6BFE`).
@@ -199,7 +249,7 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 
 ---
 
-## 10. Konfigurasi Git & Riwayat Milestone
+## 12. Konfigurasi Git & Riwayat Milestone
 * **Branch Utama:** `main`.
 * **Remote Repository:** `https://github.com/Bhayu-Satriaa/raincamp`
 * **File `.gitignore`:** Mengabaikan `html-practice/` dan folder latihan internal `belajar-js/`.
@@ -209,7 +259,8 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
   * `55ba10d`: `feat(day3): implementasi modul pertemuan 3 - pustaka algoritma, async fetch dummyjson, halaman web produk-api, dayjs, dan 3 flowchart`.
   * `0d2a094`: `feat(p4): tambahkan Tombol, data-barang, lib barang, LabelStok, dan KartuBarang hasil hands-on coding`.
   * `feat(p4)`: `selesaikan modul p04 - navbar, footer, tabeldata generik, sprint ui inventaris toko maju jaya, dan desain modern saas`.
-  * *(Current)*: `feat(p5): selesaikan modul p05 - state, controlled form, validasi, dialog konfirmasi, dan manajemen barang`.
+  * `feat(p5)`: `selesaikan modul p05 - state, controlled form, validasi, dialog konfirmasi, dan manajemen barang`.
+  * `feat(p6-p7)`: `selesaikan modul p06 & p07 - custom hooks, paginasi dinamis, useReducer, context, react-hook-form, zod, dan modul kasir`.
 * **Workflow Push:** Setiap ada perubahan fungsional atau dokumentasi, lakukan build check (`npm run build`), commit dengan format semantik (`feat:`, `docs:`), dan push ke `origin main`.
 * **Pembuatan PDF:** Menggunakan Microsoft Edge headless via PowerShell:
   `Start-Process msedge -ArgumentList '--headless=new', '--print-to-pdf="<output.pdf>"', '--no-pdf-header-footer', '<file.html>' -Wait`
