@@ -285,9 +285,10 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
   * `87e0dfc`: `feat(day2): implementasi modul pertemuan 2 - javascript modern es6+, lib nilai & hitung, dashboard mahasiswa, evaluasi c3-c4, serta laporan pdf`.
   * `55ba10d`: `feat(day3): implementasi modul pertemuan 3 - pustaka algoritma, async fetch dummyjson, halaman web produk-api, dayjs, dan 3 flowchart`.
   * `0d2a094`: `feat(p4): tambahkan Tombol, data-barang, lib barang, LabelStok, dan KartuBarang hasil hands-on coding`.
-  * `feat(p4)`: `selesaikan modul p04 - navbar, footer, tabeldata generik, sprint ui inventaris toko maju jaya, dan desain modern saas`.
-  * `feat(p5)`: `selesaikan modul p05 - state, controlled form, validasi, dialog konfirmasi, dan manajemen barang`.
-  * `feat(p6-p7)`: `selesaikan modul p06 & p07 - custom hooks, paginasi dinamis, useReducer, context, react-hook-form, zod, dan modul kasir`.
+  * `d1e87c1`: `feat(p4): selesaikan modul p04 - navbar, footer, tabeldata generik, sprint ui inventaris toko maju jaya, dan desain modern saas`.
+  * `b435478`: `feat(p5): selesaikan modul p05 - state, controlled form, validasi, dialog konfirmasi, dan manajemen barang`.
+  * `4079734`: `feat(p6-p7): selesaikan modul p06 & p07 - custom hooks, paginasi dinamis, useReducer, context, react-hook-form, zod, dan modul kasir`.
+  * `e632def`: `feat(p8): selesaikan modul p08 - vitest, react testing library, 131 test, fix bug keranjang, jsdoc, prettier, dan tabel skenario uji`.
 * **Workflow Push:** Setiap ada perubahan fungsional atau dokumentasi, lakukan build check (`npm run build`), commit dengan format semantik (`feat:`, `docs:`), dan push ke `origin main`.
 * **Pembuatan PDF:** Menggunakan Microsoft Edge headless via PowerShell:
   `Start-Process msedge -ArgumentList '--headless=new', '--print-to-pdf="<output.pdf>"', '--no-pdf-header-footer', '<file.html>' -Wait`
