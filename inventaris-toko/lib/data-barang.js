@@ -1,5 +1,6 @@
 export const KATEGORI = ["Alat Tulis", "Makanan", "Minuman", "Kebersihan"];
 
+// prettier-ignore
 export const daftarBarang = [
     { id: 1, kode: "ATK-001", nama: "Buku Tulis 58 Lembar", kategori: "Alat Tulis", harga: 5000, stok: 120, satuan: "pcs" },
     { id: 2, kode: "ATK-002", nama: "Pensil 2B", kategori: "Alat Tulis", harga: 3000, stok: 0, satuan: "pcs" },

@@ -85,6 +85,9 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 * **`modul/P07/` — Pertemuan 7: State Lanjut (`useReducer`, `Context`), React Hook Form, Zod, & Modul Kasir**
   * **Unit SKKNI:** `J.620100.017.02` (Mengimplementasikan Pemrograman Terstruktur) & `J.620100.019.02` (Menggunakan Library atau Komponen Pre-Existing).
   * **File:** `1-materi.pdf` (`useReducer`, Context + `useMemo` + `useCallback`, React Hook Form + Zod, `useWatch`), `2-praktik-gambar-v2.pdf` (Persiapan package, Praktik A1–A4, Sprint B Modul Kasir `/kasir`, 12 skenario uji, evaluasi C1–C5), serta `3-slide.pdf` (Slide presentasi).
+* **`modul/P08/` — Pertemuan 8: Unit Testing (Vitest & React Testing Library), Debugging, ESLint, Prettier, & JSDoc**
+  * **Unit SKKNI:** `J.620100.033.02` (Melaksanakan Pengujian Unit Program), `J.620100.023.02` (Membuat Dokumen Kode Program), dan `J.620100.025.02` (Melakukan Debugging).
+  * **File:** `1-materi.docx.pdf` (Konsep skenario uji Normal/Batas/Salah/Regresi, Tabel Skenario Uji Asesor, Setup Vitest + jsdom + Oxc JSX, `it.each`, React Testing Library + `user-event`, `renderHook` + fake timers, Debugging pesan test & bug nyata `Keranjang.js`, Coverage `v8`, ESLint `eslint-plugin-jsdoc`, Prettier, dan JSDoc di seluruh fungsi `lib/`).
 
 ---
 
@@ -235,7 +238,31 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 
 ---
 
-## 11. Aset Statis & Dokumentasi
+## 11. Implementasi Pertemuan 8: Unit Testing, Debugging, ESLint, Prettier, & JSDoc (SELESAI)
+* **Panduan Sumber:** `modul/P08/1-materi.docx.pdf` (Unit SKKNI `J.620100.033.02`, `J.620100.023.02`, `J.620100.025.02`).
+* **Persiapan Alat Uji & Kualitas Kode (`inventaris-toko/`):**
+  * Terpasang: `vitest` (`^5.1.2`), `@vitejs/plugin-react`, `jsdom`, `@testing-library/react`, `@testing-library/dom`, `@testing-library/user-event`, `@testing-library/jest-dom`, `@vitest/coverage-v8`, `prettier`, dan `eslint-plugin-jsdoc`.
+  * `vitest.config.mjs`: Konfigurasi `environment: "jsdom"`, `oxc` JSX parser untuk file `.js`, alias `@/`, `vitest.setup.js` (`jest-dom` + `cleanup()`), dan provider coverage `v8`.
+  * `eslint.config.mjs`, `.prettierrc` (`printWidth: 120`), `.prettierignore`, serta `// prettier-ignore` pada tabel `lib/data-barang.js`.
+* **Suite Pengujian Otomatis (131 Test di 8 Berkas — 100% Lolos):**
+  * `__tests__/keranjang.test.js` (34 test): Reducer keranjang, *immutability*, `persenDiskon` (`it.each` 7 nilai batas), `hitungRingkasan`, `kurangiStok`, `menujuDiskonBerikutnya`.
+  * `__tests__/algoritma.test.js` (19 test) + `lib/algoritma.js`: `linearSearch`, `binarySearch`, `bubbleSort` (optimasi berhenti dini), `selectionSort`, `insertionSort`, `urutkanBerdasarkan`.
+  * `__tests__/barang.test.js` (19 test): `statusStok` (`it.each`), `kelompokkanPerKategori`, `ringkasanStok`, CRUD murni, `validasiBarang`, `adaGalat`, `formatRupiah`.
+  * `__tests__/komponen.test.jsx` (16 test): `LabelStok`, `Paginasi`, integrasi Kasir dalam `KeranjangProvider`, `FormPembayaran`, dan test regresi **`UJ-33`**.
+  * `__tests__/skema.test.js` (15 test): `skemaBarang`, `buatSkemaPembayaran` (termasuk batas uang kurang Rp 1), `galatPerKolom`.
+  * `__tests__/kueri.test.js` (13 test): Pencarian, filter kategori, keempat mode urut, paginasi, penjepitan halaman, *immutability*.
+  * `latihan/berbug.js` & `latihan/berbug.test.js` (11 test): Latihan berburu & mengunci 5 bug klasik (`.reduce` tanpa nilai awal `0`, batas `>` vs `>=`, `0/0` `NaN`, mutasi `.sort()`, normalisasi kode).
+  * `__tests__/hook.test.js` (4 test): `useDebounce` (`vi.useFakeTimers()`) dan `useLocalStorage`.
+* **Debugging & Perbaikan Bug Produksi:**
+  * `components/kasir/Keranjang.js`: Ekstraksi komponen `InputJumlah` agar saat kasir mengosongkan kolom jumlah sementara dengan *Backspace* (`""`), baris barang tidak terhapus oleh reducer dan terpulihkan saat `onBlur` (dikunci oleh test regresi `UJ-33`).
+* **Dokumentasi Kode & Bukti Asesor:**
+  * Seluruh fungsi ekspor di `lib/` dikonversi menjadi `export function` dan dilengkapi JSDoc (`@param`, `@returns`, `@throws`, `@example`).
+  * `docs/tabel-skenario-uji.md`: Tabel 33 skenario uji (`UJ-01` s.d. `UJ-33`), analisis bug & perbaikan, serta laporan coverage (`lib/` **100% Statements & Lines, 99.19% Branch**).
+* **Verifikasi:** `npm run test:run` (8 berkas, 131 test lolos), `npm run coverage` (`lib/` 100%), `npm run lint` (0 error/warning), `npm run format:cek` lolos, dan `npm run build` Next.js 16.4.6 Turbopack lolos.
+
+---
+
+## 12. Aset Statis & Dokumentasi
 * **Folder `public/`**:
   * `foto.jpg`: Foto profil kandidat (digunakan pada `/cv`).
   * `deepseek-icon.svg`: Ikon paus DeepSeek vektor resolusi tajam (`#4D6BFE`).
@@ -249,7 +276,7 @@ Struktur modul pelatihan sertifikasi Junior Programmer telah dikelompokkan rapi 
 
 ---
 
-## 12. Konfigurasi Git & Riwayat Milestone
+## 13. Konfigurasi Git & Riwayat Milestone
 * **Branch Utama:** `main`.
 * **Remote Repository:** `https://github.com/Bhayu-Satriaa/raincamp`
 * **File `.gitignore`:** Mengabaikan `html-practice/` dan folder latihan internal `belajar-js/`.

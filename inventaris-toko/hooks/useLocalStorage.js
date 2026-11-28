@@ -3,18 +3,18 @@
 import { useEffect, useState } from "react";
 
 export function useLocalStorage(kunci, nilaiAwal) {
-    const [nilai, setNilai] = useState(() => {
-        try {
-            const tersimpan = window.localStorage.getItem(kunci);
-            return tersimpan !== null ? JSON.parse(tersimpan) : nilaiAwal;
-        } catch {
-            return nilaiAwal;
-        }
-    });
+  const [nilai, setNilai] = useState(() => {
+    try {
+      const tersimpan = window.localStorage.getItem(kunci);
+      return tersimpan !== null ? JSON.parse(tersimpan) : nilaiAwal;
+    } catch {
+      return nilaiAwal;
+    }
+  });
 
-    useEffect(() => {
-        window.localStorage.setItem(kunci, JSON.stringify(nilai));
-    }, [kunci, nilai]);
+  useEffect(() => {
+    window.localStorage.setItem(kunci, JSON.stringify(nilai));
+  }, [kunci, nilai]);
 
-    return [nilai, setNilai];
+  return [nilai, setNilai];
 }
